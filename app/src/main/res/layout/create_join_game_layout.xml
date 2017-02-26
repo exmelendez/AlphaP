@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background1">
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:id="@+id/create_button"
+        android:text="Create Game"
+        android:textSize="40dp"
+        android:background="#EE8202"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:textStyle="bold"/>
+
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:id="@+id/join_button"
+        android:text="Join Game"
+        android:textSize="40dp"
+        android:background="#8DC618"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>
+
+
+    <!--ED1D7A EE8202 28ACFE 8DC618 FCCC01 9700AF-->

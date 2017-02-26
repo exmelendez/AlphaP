@@ -1,9 +1,13 @@
 package com.example.android.alphap;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by yojanasharma on 2/26/17.
+ */
+
+public class CreateJoinGameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
