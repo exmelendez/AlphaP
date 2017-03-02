@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AlphaP</string>
+    <string name="name">Name</string>
+    <string name="privacy">Privacy</string>
+    <string name="lobby">Lobby</string>
+    <string name="numberplayers">Number of Players</string>
+    <string-array name="numberplayers_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
