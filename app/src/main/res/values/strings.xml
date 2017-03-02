@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="count_players">
+        <item>Player 1</item>
+        <item>Player 2</item>
+        <item>Player 3</item>
+        <item>Player 4</item>
+
     <string name="app_name">AlphaP</string>
     <string name="name">Name</string>
     <string name="privacy">Privacy</string>
@@ -9,5 +16,6 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+
     </string-array>
 </resources>
