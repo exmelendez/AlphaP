@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.alphap" >
 
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +16,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".TestActivity" >
+        <activity android:name=".BlueToothTest" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID"-->
+            <!--android:value="@string/service_id" />-->
+        <!--<meta-data-->
+            <!--android:name="com.google.android.nearby.messages.API_KEY"-->
+            <!--android:value="AIzaSyClOqOhoe_BLjiUluhiB3obru921ppz6po" />-->
+
     </application>
 
 </manifest>

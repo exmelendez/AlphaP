@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AlphaP</string>
+    <string name="service_id">com.example.android.alphap</string>
+    <string name="connect_text">Connect Tater</string>
 </resources>
