@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background6"
+    android:background="@drawable/b4"
     android:orientation="vertical">
 
     <TextView
@@ -18,19 +18,23 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:hint="Type your name" />
+        android:hint="Type your name"
+        android:textSize="20dp"
+        android:textColor="#ffff"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dip"
-        android:textSize="30dp"
-        android:text="Number of players:" />
+        android:layout_marginTop="50dip"
+        android:textSize="20dp"
+        android:textColor="#ffff"
+        android:text="Number of players:"
+        android:paddingLeft="10dp"/>
 
 
     <Spinner
@@ -40,6 +44,20 @@
         android:background="@android:drawable/btn_dropdown"
         android:paddingTop="20dp"
         android:spinnerMode="dropdown" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/invite"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Invite Friends"/>
 
 </LinearLayout>
 
