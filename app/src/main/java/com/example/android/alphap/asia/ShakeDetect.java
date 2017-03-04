@@ -1,4 +1,4 @@
-package com.example.android.alphap;
+package com.example.android.alphap.asia;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

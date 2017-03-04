@@ -1,4 +1,4 @@
-package com.example.android.alphap;
+package com.example.android.alphap.asia;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static java.security.AccessController.getContext;
+import com.example.android.alphap.R;
 
 /**
  * Created by asiagibson on 2/28/17.

@@ -1,4 +1,4 @@
-package com.example.android.alphap;
+package com.example.android.alphap.asia;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.android.alphap.R;
 
 import java.util.ArrayList;
 import java.util.Set;
