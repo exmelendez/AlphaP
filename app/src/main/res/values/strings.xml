@@ -5,6 +5,7 @@
         <item>Player 2</item>
         <item>Player 3</item>
         <item>Player 4</item>
+    </string-array>
 
     <string name="app_name">AlphaP</string>
     <string name="name">Name</string>
@@ -18,4 +19,6 @@
         <item>4</item>
 
     </string-array>
+    <string name="service_id">com.example.android.alphap</string>
+    <string name="connect_text">Connect Tater</string>
 </resources>
