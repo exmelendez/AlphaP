@@ -8,18 +8,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".CreateJoinGameActivity"></activity>
+        <activity android:name=".eddie.GameSetup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".eddie.GameSetup"></activity>
-=======
+
         <activity android:name=".CreateGame"></activity>
->>>>>>> 99ac1e00b3c73475f6fcac998a4562d6e9d0d39e
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".eddie.Timer"></activity>
+
     </application>
 
 </manifest>
