@@ -36,7 +36,7 @@ public class ConnectionSocket {
         byte[] buffer = new byte[4];
         try {
             mmInStream.read(buffer);
-            Log.e("msg", buffer[0] + "");
+            Log.e("message", buffer[0] + "");
             return buffer[0];
         } catch (IOException e) {
             return ERROR_RETURN;

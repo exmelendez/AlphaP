@@ -25,7 +25,7 @@ import java.util.Set;
  * Created by asiagibson on 3/4/17.
  */
 
-public class Lobby extends Activity {
+public class LobbyActivity extends Activity {
 
     private static final int REQUEST_ENABLE_BT = -1;
     ListView player_devices;
@@ -72,7 +72,7 @@ public class Lobby extends Activity {
                                 BtConnectDevices.connection_socket.write((byte) -2);
 
                                 Intent game_intent = new Intent(context,
-                                        GameActivity.class);
+                                        GamePlayActivity.class);
                                 startActivity(game_intent);
                                 break;
                             }
@@ -98,7 +98,7 @@ public class Lobby extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent launch_screen_intent = new Intent(this, StartScreen.class);
+        Intent launch_screen_intent = new Intent(this, StartScreenActivity.class);
         startActivity(launch_screen_intent);
         finish();
     }

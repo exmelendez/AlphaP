@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/farmtwo"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+
+        <Button
+            android:id="@+id/button_main_menu_new_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CREATE GAME"
+            android:layout_marginTop="15dp"
+            android:onClick="to_new_game"
+            android:layout_gravity="center_horizontal"
+            />
+        <Button
+            android:id="@+id/button_main_menu_join_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOIN"
+            android:layout_marginTop="20dp"
+            android:onClick="to_join_game"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/button_main_menu_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EXIT"
+            android:layout_marginTop="20dp"
+            android:onClick="exit"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</RelativeLayout>
