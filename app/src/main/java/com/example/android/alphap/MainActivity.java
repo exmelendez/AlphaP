@@ -1,4 +1,4 @@
-package com.example.android.alphap.asia;
+package com.example.android.alphap;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
