@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.alphap">
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-
-
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".CreateJoinGameActivity"></activity>
-       
-      <activity android:name=".eddie.GameSetup">
-
+        <activity
+            android:name=".Splash"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateJoinGameActivity"></activity>
+        <activity android:name=".eddie.GameSetup"> </activity>
 
 
-        <activity android:name=".CreateGame"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CreateGame" />
+        <activity android:name=".LobbyActivity" />
         <activity android:name=".eddie.Timer"></activity>
-
-        <activity android:name=".eddie.GameSetup"></activity>
-        <activity android:name=".CreateGame"></activity>
 
         <activity android:name=".gamemode.HostGameActivity"/>
         <activity android:name=".gamemode.GamePlayActivity"/>
@@ -55,6 +48,4 @@
 
 
     </application>
-
-
 </manifest>
