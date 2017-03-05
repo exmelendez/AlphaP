@@ -16,13 +16,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".CreateJoinGameActivity"></activity>
+        <activity android:name=".eddie.GameSetup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".CreateGame"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".eddie.Timer"></activity>
+
         <activity android:name=".eddie.GameSetup"></activity>
         <activity android:name=".CreateGame"></activity>
 
@@ -31,6 +38,7 @@
         <!--<meta-data-->
         <!--android:name="com.google.android.nearby.messages.API_KEY"-->
         <!--android:value="AIzaSyClOqOhoe_BLjiUluhiB3obru921ppz6po" />-->
+
 
 
     </application>
