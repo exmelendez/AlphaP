@@ -10,67 +10,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Lobby"
+        android:text="Opponents"
         android:textAlignment="center"
         android:textSize="30dp" />
 
-    <!--<android.support.v7.widget.CardView-->
-        <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/card_view"-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--card_view:cardCornerRadius="4dp">-->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        card_view:cardCornerRadius="4dp" />
 
-        <!--<TextView-->
-            <!--android:id="@+id/user2"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="30dp"-->
-            <!--android:layout_marginRight="30dp"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:hint="Host" />-->
-    <!--</android.support.v7.widget.CardView>-->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        card_view:cardCornerRadius="4dp" />
 
-    <!--<android.support.v7.widget.CardView-->
-        <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/card_view2"-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--card_view:cardCornerRadius="4dp">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/user3"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="30dp"-->
-            <!--android:layout_marginRight="30dp"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:hint="User 2" />-->
-    <!--</android.support.v7.widget.CardView>-->
-
-    <!--<android.support.v7.widget.CardView-->
-        <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/card_view3"-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--card_view:cardCornerRadius="4dp">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/host"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="30dp"-->
-            <!--android:layout_marginRight="30dp"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:hint="User 3" />-->
-    <!--</android.support.v7.widget.CardView>-->
-
-
+    <Button
+        android:id="@+id/startbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startbutton"
+        android:layout_gravity="center"
+        android:text="Start" />
 
 </LinearLayout>
