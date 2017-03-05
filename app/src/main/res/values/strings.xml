@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AlphaP</string>
+    <string name="btnOnText">TWO</string>
+    <string name="btnOffText">ONE</string>
 </resources>
