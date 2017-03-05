@@ -74,10 +74,13 @@
         </RelativeLayout>
 
         <Button
+            android:id="@+id/strt_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/numberplayerstextspinner"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:text="START"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

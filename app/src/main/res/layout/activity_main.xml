@@ -10,14 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.alphap.MainActivity">
 
-
-    <Button
-        android:id="@+id/firstbutton"
+    <TextView
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="firstbutton"
-        android:text="Begin" />
-
-
+        android:text="Hello World!" />
 </RelativeLayout>
