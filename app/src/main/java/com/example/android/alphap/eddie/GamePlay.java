@@ -1,7 +1,6 @@
 package com.example.android.alphap.eddie;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -12,8 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.example.android.alphap.CreateJoinGameActivity;
 import com.example.android.alphap.R;
+import com.example.android.alphap.gamemode.LobbyActivity;
+
 
 public class GamePlay extends Activity {
 
@@ -54,7 +54,7 @@ public class GamePlay extends Activity {
         @Override
         public void onFinish() {
 
-            Intent someScreen = new Intent(GamePlay.this, Lobby.class);
+            Intent someScreen = new Intent(GamePlay.this, LobbyActivity.class);
             startActivity(someScreen);
         }
     }
@@ -93,14 +93,12 @@ public class GamePlay extends Activity {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            Context context = GamePlay.this;
-            ImageView imageView = new ImageView(context);
-            int padding = context.getResources().getDimensionPixelSize(
-                    R.dimen.padding_medium);
+            ImageView imageView = new ImageView(getApplicationContext());
+            int padding = getResources().getDimensionPixelSize(R.dimen.padding_medium);
             imageView.setPadding(padding, padding, padding, padding);
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setImageResource(createArray()[position]);
-            ((ViewPager) container).addView(imageView, 0);
+            container.addView(imageView, 0);
             return imageView;
         }
 
