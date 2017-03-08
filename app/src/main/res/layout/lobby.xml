@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical">
 
     <TextView
-        android:textColor="@color/green"
+        android:textColor="@color/brown"
         android:id="@+id/lobbytext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,10 +32,13 @@
         card_view:cardCornerRadius="4dp" />
 
     <Button
+        android:textColor="@color/brown"
+        android:layout_marginTop="20dp"
         android:id="@+id/startbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="startbutton"
+        android:background="@color/orange"
         android:layout_gravity="center"
         android:text="Start" />
 
