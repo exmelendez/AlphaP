@@ -14,10 +14,18 @@
         android:theme="@style/AppTheme">
 
 
+<!--         <activity
+            android:name=".Splash"
+            android:noHistory="true">
+        </activity>
+
+        <activity android:name=".CreateJoinGameActivity"></activity>
+        <activity android:name=".eddie.GamePlay">
+
         <activity android:name=".CreateJoinGameActivity"></activity>
         <activity android:name=".Clicktoimage"/>
         <activity android:name=".CreateGame"/>
-
+ -->
         <activity
             android:name=".Splash"
             android:noHistory="true">
@@ -27,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".eddie.GameSetup"> </activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LobbyActivity" />
