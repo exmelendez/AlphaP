@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b4"
+    android:background="@drawable/b2"
     android:orientation="vertical">
 
     <TextView
@@ -16,25 +16,59 @@
         android:textColor="#ffff"
         android:textSize="60dp" />
 
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Shake"
+            android:layout_marginLeft="100dp"/>
+
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:scrollbarSize="50dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/Swipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:text="Swipe" />
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="180dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:hint="Type your name"
-        android:textSize="20dp"
-        android:textColor="#ffff"/>
+        android:textColor="#ffff"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="50dip"
-        android:textSize="20dp"
-        android:textColor="#ffff"
+        android:paddingLeft="10dp"
         android:text="Number of players:"
-        android:paddingLeft="10dp"/>
+        android:textColor="#ffff"
+        android:textSize="20dp" />
 
 
     <Spinner
@@ -45,19 +79,6 @@
         android:paddingTop="20dp"
         android:spinnerMode="dropdown" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/invite"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Invite Friends"/>
 
 </LinearLayout>
 

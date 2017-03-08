@@ -18,7 +18,7 @@ public class Splash extends Activity {
         potatoIV = (ImageView) findViewById(R.id.iv_potato);
 
         ObjectAnimator moveAnim = ObjectAnimator.ofFloat(potatoIV, "Y", 1000);
-        moveAnim.setDuration(2000);
+        moveAnim.setDuration(2500);
         moveAnim.setInterpolator(new BounceInterpolator());
         moveAnim.start();
 
