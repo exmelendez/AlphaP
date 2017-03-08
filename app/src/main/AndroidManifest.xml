@@ -12,23 +12,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <activity android:name=".CreateJoinGameActivity"></activity>
+        <activity android:name=".Clicktoimage"/>
+        <activity android:name=".CreateGame"/>
+
         <activity
             android:name=".Splash"
             android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateJoinGameActivity"></activity>
         <activity android:name=".eddie.GameSetup"> </activity>
-
-
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".CreateGame" />
         <activity android:name=".LobbyActivity" />
         <activity android:name=".eddie.Timer"></activity>
-
         <activity android:name=".gamemode.HostGameActivity"/>
         <activity android:name=".gamemode.GamePlayActivity"/>
         <activity android:name=".gamemode.LobbyActivity"/>
