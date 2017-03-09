@@ -6,7 +6,11 @@ package com.example.android.alphap.gamemode;
 
 public class Potato {
 
-    public static final int POTATO = 0 ;
+    public static final int POTATO_DUDE = 0 ;
+    public static final int POTATO_HARY = 1 ;
+    public static final int POTATO_THELMA = 2 ;
+    public static final int POTATO_TONEE = 3 ;
+    public static final int POTATO_TITO = 4 ;
 
 
     private int x ;
@@ -27,7 +31,7 @@ public class Potato {
 
     public Potato()
     {
-        this(0,0,POTATO);
+        this(0,0,POTATO_DUDE);
     }
 
     public int get_x()
