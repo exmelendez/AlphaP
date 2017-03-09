@@ -1,8 +1,8 @@
 package com.example.android.alphap.gamemode;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,7 +13,7 @@ import com.example.android.alphap.R;
  * Created by asiagibson on 3/4/17.
  */
 
-public class StartScreenActivity extends Activity {
+public class StartScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,15 @@ public class StartScreenActivity extends Activity {
 
     }
 
-    public void to_new_game(View view)
+    public void toNewGame(View view)
     {
-        Intent new_game_intent = new Intent(this, HostGameActivity.class);
-        startActivity(new_game_intent);
+        Intent newGameIntent = new Intent(this, HostGameActivity.class);
+        startActivity(newGameIntent);
     }
 
-    public void to_join_game(View view)
+    public void toJoinGame(View view)
     {
-        Intent join_game_intent = new Intent(this, LobbyActivity.class);
+        Intent join_game_intent = new Intent(this, JoinedPlayerActivity.class);
         startActivity(join_game_intent);
     }
 

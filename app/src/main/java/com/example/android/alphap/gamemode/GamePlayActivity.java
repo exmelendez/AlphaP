@@ -14,6 +14,8 @@ import com.example.android.alphap.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.android.alphap.R.id.game_timer;
+
 /**
  * Created by asiagibson on 3/5/17.
  */
@@ -22,13 +24,15 @@ public class GamePlayActivity extends Activity {
 
     public static final int UPDATE_PERIOD = 10;
     public TextView gameClock;
+    TextView score1;
+    TextView score2;
     public int countDownDone;
-    public Runnable game_main_thread;
+    public Runnable gameMainThread;
     public boolean finished;
     GameView gamePlayView;
     Context context;
     public Runnable runnable;
-    public TimerTask timer_task;
+    public TimerTask timerTask;
     public ViewGroup layout;
 
 
@@ -44,76 +48,67 @@ public class GamePlayActivity extends Activity {
         finished = false;
         countDownDone = 100;
 
+        score1 = (TextView) findViewById(R.id.score_one);
+        score2 = (TextView) findViewById(R.id.score_two);
+
         gameClock = (TextView) findViewById(R.id.game_timer);
         gamePlayView = new GameView(this, 1000);
 
-        run();
 
-        timer_task = new TimerTask() {
+        gameMainThread = new Runnable() {
+
             @Override
             public void run() {
-                runOnUiThread(game_main_thread);
+                if (!finished) {
+                    gamePlayView.update();
+
+                    if (gamePlayView.getGamePlay().getGameState() == Game.PLAYING) {
+                        score1.setText(gamePlayView.getGamePlay()
+                                .getPlayer1Score() + "");
+                        score2.setText(gamePlayView.getGamePlay()
+                                .getPlayer2Score() + "");
+                        gameClock.setText(gamePlayView.getGamePlay()
+                                .getCurrentTime());
+
+                        countDownDone--;
+                        if (countDownDone < 0) {
+                            finished = true;
+                            gamePlayView.getGamePlay().stop_players();
+                            if (BtConnectDevices.connection_socket != null) {
+                                BtConnectDevices.connection_socket.cancel();
+                            }
+                            Intent startSceenIntent = new Intent(context,
+                                    StartScreenActivity.class);
+                            startActivity(startSceenIntent);
+                            if (BtConnectDevices.connection_socket != null) {
+                                BtConnectDevices.connection_socket.cancel();
+                            }
+                            finish();
+                            return;
+                        }
+                    }
+
+                    timerTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            runOnUiThread(gameMainThread);
+                        }
+                    };
+
+                    layout = (ViewGroup) findViewById(R.id.game_play_main_layout);
+                    layout.addView(gamePlayView);
+
+                    update_game();
+
+                }
             }
+
+            private void update_game() {
+                Timer t = new Timer();
+                t.scheduleAtFixedRate(timerTask, 0, UPDATE_PERIOD);
+            }
+
+
         };
-
-        layout = (ViewGroup) findViewById(R.id.game_play_main_layout);
-        layout.addView(gamePlayView);
-
-        update_game();
-
-    }
-
-    private void update_game() {
-        Timer t = new Timer();
-        t.scheduleAtFixedRate(timer_task, 0, UPDATE_PERIOD);
-    }
-
-
-
-    public void run() {
-
-        if (!finished) {
-            gamePlayView.update();
-
-            countDownDone--;
-            if (countDownDone < 0) {
-                finished = true;
-                gamePlayView.get_game_play().stop_players();
-                if (BtConnectDevices.connection_socket != null) {
-                    BtConnectDevices.connection_socket.cancel();
-                }
-                Intent startSceenIntent = new Intent(context,
-                        StartScreenActivity.class);
-                startActivity(startSceenIntent);
-                if (BtConnectDevices.connection_socket != null) {
-                    BtConnectDevices.connection_socket.cancel();
-                }
-                finish();
-                return;
-            }
-
-        }
-
     }
 }
-
-
-//        timer_task=new TimerTask(){
-//@Override
-//public void run(){
-//        runOnUiThread(game_main_thread);
-//        }
-//        };
-//
-//        layout=(ViewGroup)findViewById(R.id.game_play_main_layout);
-//        layout.addView(gamePlayView);
-//
-//        update_game();
-//
-//        }
-//
-//private void update_game(){
-//        Timer t=new Timer();
-//        t.scheduleAtFixedRate(timer_task,0,UPDATE_PERIOD);
-//        }
-//        }

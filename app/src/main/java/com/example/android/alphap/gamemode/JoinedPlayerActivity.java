@@ -26,7 +26,7 @@ import java.util.Set;
  * Created by asiagibson on 3/4/17.
  */
 
-public class LobbyActivity extends AppCompatActivity {
+public class JoinedPlayerActivity extends AppCompatActivity {
 
     private static final int REQUEST_ENABLE_BT = -1;
     ListView player_devices;
