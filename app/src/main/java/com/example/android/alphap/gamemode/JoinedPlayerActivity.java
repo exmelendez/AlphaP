@@ -48,7 +48,7 @@ public class JoinedPlayerActivity extends AppCompatActivity {
         bluetoothAdapter = BtConnectDevices.mBluetoothAdapter;
         context = this;
 
-        player_devices = (ListView) findViewById(R.id.player_device);
+        player_devices = (ListView) findViewById(R.id.player_devices);
         arrayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1);
         player_devices.setAdapter(arrayAdapter);

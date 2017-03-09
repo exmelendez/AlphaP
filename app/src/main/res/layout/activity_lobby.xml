@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/farmtwo"
-    >
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:textColor="@color/green"
+        android:id="@+id/lobbytext"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Opponents"
+        android:textAlignment="center"
+        android:textSize="30dp" />
 
-        <ListView
-            android:id="@+id/player_device"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/player_devices"/>
 
-</RelativeLayout>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        card_view:cardCornerRadius="4dp" />
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        card_view:cardCornerRadius="4dp" />
+
+    <Button
+        android:id="@+id/startbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startbutton"
+        android:layout_gravity="center"
+        android:text="Start" />
+
+</LinearLayout>
