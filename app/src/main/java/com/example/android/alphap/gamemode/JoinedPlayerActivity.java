@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,7 +26,7 @@ import java.util.Set;
  * Created by asiagibson on 3/4/17.
  */
 
-public class LobbyActivity extends Activity {
+public class JoinedPlayerActivity extends AppCompatActivity {
 
     private static final int REQUEST_ENABLE_BT = -1;
     ListView player_devices;
@@ -72,7 +73,7 @@ public class LobbyActivity extends Activity {
                                 BtConnectDevices.connection_socket.write((byte) -2);
 
                                 Intent game_intent = new Intent(context,
-                                        GamePlayActivity.class);
+                                        HotPotato.class);
                                 startActivity(game_intent);
                                 break;
                             }

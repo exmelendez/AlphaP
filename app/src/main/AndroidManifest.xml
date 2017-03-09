@@ -4,14 +4,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
     <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreateJoinGameActivity" />
 
 
 <!--         <activity
@@ -36,19 +40,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".eddie.GameSetup"> </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LobbyActivity" />
-        <activity android:name=".eddie.Timer"></activity>
-        <activity android:name=".gamemode.HostGameActivity"/>
-        <activity android:name=".gamemode.GamePlayActivity"/>
-        <activity android:name=".gamemode.LobbyActivity"/>
-        <activity android:name=".gamemode.StartScreenActivity"/>
-        <!--<activity android:name=".GameMode.DeviceListActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden"-->
-            <!--android:label="@string/select_device"-->
-            <!--android:theme="@android:style/Theme.Holo.Dialog"-->
-            <!--&gt;</activity>-->
+        <activity android:name=".CreateGame" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".eddie.Timer" />
+
+        <!-- <activity android:name=".eddie.GameSetup"></activity> -->
+        <!-- <activity android:name=".CreateGame"></activity> -->
+
+
+        <activity android:name=".gamemode.HostGameActivity" />
+        <activity android:name=".gamemode.HotPotato" />
+        <activity android:name=".gamemode.JoinedPlayerActivity" />
+
+         <activity android:name=".gamemode.StartScreenActivity"/>
+
 
         <!--<meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID"-->
         <!--android:value="@string/service_id" />-->
@@ -59,4 +64,5 @@
 
 
     </application>
+
 </manifest>

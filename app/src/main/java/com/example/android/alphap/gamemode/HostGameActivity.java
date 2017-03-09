@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -13,7 +14,7 @@ import com.example.android.alphap.R;
  * Created by asiagibson on 3/5/17.
  */
 
-public class HostGameActivity extends Activity {
+public class HostGameActivity extends AppCompatActivity {
 
 
     Context mContext;
@@ -39,7 +40,7 @@ public class HostGameActivity extends Activity {
                     if (BtConnectDevices.is_ready && BtConnectDevices.connection_socket.read_next() == -2)
                     {
                         Intent intent = new Intent(mContext,
-                                GamePlayActivity.class);
+                                HotPotato.class);
                         startActivity(intent);
                         break;
                     }
