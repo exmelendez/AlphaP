@@ -40,7 +40,7 @@ public class HostGameActivity extends AppCompatActivity {
                     if (BtConnectDevices.is_ready && BtConnectDevices.connection_socket.read_next() == -2)
                     {
                         Intent intent = new Intent(mContext,
-                                HotPotato.class);
+                            HotPotato.class);
                         startActivity(intent);
                         break;
                     }
