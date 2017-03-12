@@ -7,7 +7,7 @@
         <item>Player 4</item>
     </string-array>
 
-    <string name="app_name">AlphaP</string>
+    <string name="app_name">Tater Pop</string>
     <string name="name">Name</string>
     <string name="privacy">Privacy</string>
     <string name="lobby">Lobby</string>
@@ -21,13 +21,6 @@
     </string-array>
     <string name="service_id">com.example.android.alphap</string>
     <string name="connect_text">Connect Tater</string>
-
-
-
-
-
-
-
 
 
     <!--  BluetoothChat -->
@@ -51,5 +44,12 @@
     <string name="secure_connect">Connect a device - Secure</string>
     <string name="insecure_connect">Connect a device - Insecure</string>
     <string name="discoverable">Make discoverable</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- Testing/Sampling -->
+    <string name="gesture_sample">Hello Worldy</string>
 
 </resources>
