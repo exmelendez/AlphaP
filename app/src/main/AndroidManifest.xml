@@ -39,7 +39,7 @@
                 <activity android:name=".CreateGame"/>
          -->
         <activity
-            android:name=".Splash"
+            android:name=".gamemode.StartScreenActivity"
             android:noHistory="true">
 
             <intent-filter>
@@ -60,7 +60,6 @@
         <activity android:name=".gamemode.HotPotato" />
         <activity android:name=".gamemode.JoinedPlayerActivity" />
         <activity android:name=".gamemode.GamePlayActivity" />
-        <activity android:name=".gamemode.StartScreenActivity"/>
 
 
         <!--<meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID"-->
