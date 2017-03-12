@@ -39,5 +39,6 @@
         <activity android:name=".bluetoothmode.HotPotato" />
         <activity android:name=".bluetoothmode.JoinedPlayerActivity" />
         <activity android:name=".bluetoothmode.GamePlayActivity" />
+        <activity android:name=".shakefunction.ShakeActivity"/>
     </application>
 </manifest>
