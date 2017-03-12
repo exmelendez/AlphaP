@@ -1,10 +1,9 @@
-package com.example.android.alphap.asia;
+package com.example.android.alphap.shakefunction;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.util.FloatMath;
 
 /**
  * Created by asiagibson on 2/28/17.

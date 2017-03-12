@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.android.alphap.R;
-import com.example.android.alphap.gamemode.LobbyActivity;
+import com.example.android.alphap.bluetoothmode.JoinedPlayerActivity;
 
 
 public class GamePlay extends Activity {
@@ -54,7 +54,7 @@ public class GamePlay extends Activity {
         @Override
         public void onFinish() {
 
-            Intent someScreen = new Intent(GamePlay.this, LobbyActivity.class);
+            Intent someScreen = new Intent(GamePlay.this, JoinedPlayerActivity.class);
             startActivity(someScreen);
         }
     }

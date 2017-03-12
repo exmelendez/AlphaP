@@ -1,4 +1,4 @@
-package com.example.android.alphap.asia;
+package com.example.android.alphap.shakefunction;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
