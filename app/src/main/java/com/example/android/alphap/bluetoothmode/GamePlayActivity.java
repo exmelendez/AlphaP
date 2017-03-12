@@ -1,4 +1,4 @@
-package com.example.android.alphap.gamemode;
+package com.example.android.alphap.bluetoothmode;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,8 +13,6 @@ import com.example.android.alphap.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.example.android.alphap.R.id.game_timer;
 
 /**
  * Created by asiagibson on 3/5/17.

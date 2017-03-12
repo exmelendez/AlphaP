@@ -1,4 +1,4 @@
-package com.example.android.alphap.gamemode;
+package com.example.android.alphap.bluetoothmode;
 
 /**
  * Created by asiagibson on 3/4/17.

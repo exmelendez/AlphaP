@@ -1,6 +1,5 @@
-package com.example.android.alphap.gamemode;
+package com.example.android.alphap.bluetoothmode;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;

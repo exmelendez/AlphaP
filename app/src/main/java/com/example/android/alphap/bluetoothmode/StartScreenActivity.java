@@ -1,4 +1,4 @@
-package com.example.android.alphap.gamemode;
+package com.example.android.alphap.bluetoothmode;
 
 import android.content.Intent;
 import android.os.Bundle;

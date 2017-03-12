@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.alphap.gamemode.HotPotato">
+    tools:context="com.example.android.alphap.bluetoothmode.HotPotato">
 
     <ImageView
         android:id="@+id/shock_clock_iv"

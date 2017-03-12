@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.android.alphap.R;
-import com.example.android.alphap.gamemode.JoinedPlayerActivity;
+import com.example.android.alphap.bluetoothmode.JoinedPlayerActivity;
 
 
 public class GamePlay extends Activity {

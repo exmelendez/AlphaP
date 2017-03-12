@@ -1,4 +1,4 @@
-package com.example.android.alphap.gamemode;
+package com.example.android.alphap.bluetoothmode;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

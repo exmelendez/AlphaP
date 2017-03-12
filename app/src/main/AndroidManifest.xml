@@ -39,7 +39,7 @@
                 <activity android:name=".CreateGame"/>
          -->
         <activity
-            android:name=".gamemode.StartScreenActivity"
+            android:name=".bluetoothmode.StartScreenActivity"
             android:noHistory="true">
 
             <intent-filter>
@@ -56,10 +56,10 @@
         <!-- <activity android:name=".CreateGame"></activity> -->
 
 
-        <activity android:name=".gamemode.HostGameActivity" />
-        <activity android:name=".gamemode.HotPotato" />
-        <activity android:name=".gamemode.JoinedPlayerActivity" />
-        <activity android:name=".gamemode.GamePlayActivity" />
+        <activity android:name=".bluetoothmode.HostGameActivity" />
+        <activity android:name=".bluetoothmode.HotPotato" />
+        <activity android:name=".bluetoothmode.JoinedPlayerActivity" />
+        <activity android:name=".bluetoothmode.GamePlayActivity" />
 
 
         <!--<meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID"-->

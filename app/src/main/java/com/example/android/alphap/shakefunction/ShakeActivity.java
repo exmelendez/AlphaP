@@ -1,4 +1,4 @@
-package com.example.android.alphap.asia;
+package com.example.android.alphap.shakefunction;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -14,7 +14,7 @@ import com.example.android.alphap.R;
  * Created by asiagibson on 2/28/17.
  */
 
-public class TestActivity extends AppCompatActivity {
+public class ShakeActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetect mShakeDetector;
