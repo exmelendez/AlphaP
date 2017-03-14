@@ -23,13 +23,6 @@
     <string name="connect_text">Connect Tater</string>
 
 
-
-
-
-
-
-
-
     <!--  BluetoothChat -->
     <string name="send">Send</string>
     <string name="not_connected">You are not connected to a device</string>
