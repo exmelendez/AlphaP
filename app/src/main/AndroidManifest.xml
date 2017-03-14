@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.alphap">
+
+    <!-- permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <!-- features -->
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,47 +17,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- meta data -->
+        <meta-data android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id"/>
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+        <!-- <activity
+                    android:name=".Splash"
+                    android:noHistory="true">
+                </activity> -->
 
+        <activity android:name=".CreateJoinGameActivity" />
+        <activity android:name=".bluetoothmode.StartScreenActivity" >
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
 
-        <activity android:name=".CreateJoinGameActivity"></activity>
-        <activity android:name=".Clicktoimage"/>
-        <activity android:name=".CreateGame"/>
-
+        <!-- google play games -->
         <activity
-            android:name=".yojana.GoogleNearby"
-            android:noHistory="true">
-
+            android:name=".playgames.PlayActivity"
+            android:label="@string/app_name"
+            android:allowBackup="false"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".eddie.GameSetup"> </activity>
-        <!--<activity android:name=".MainActivity"></activity>-->
-        <activity android:name=".LobbyActivity" />
-        <activity android:name=".eddie.Timer"></activity>
-        <activity android:name=".gamemode.HostGameActivity"/>
-        <activity android:name=".gamemode.GamePlayActivity"/>
-        <activity android:name=".gamemode.LobbyActivity"/>
-        <activity android:name=".gamemode.StartScreenActivity"/>
-        <!--<activity android:name=".GameMode.DeviceListActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden"-->
-            <!--android:label="@string/select_device"-->
-            <!--android:theme="@android:style/Theme.Holo.Dialog"-->
-            <!--&gt;</activity>-->
 
-        <!--<meta-data android:name="com.google.android.gms.nearby.connection.SERVICE_ID"-->
-        <!--android:value="@string/service_id" />-->
-        <!--<meta-data-->
-        <!--android:name="com.google.android.nearby.messages.API_KEY"-->
-        <!--android:value="AIzaSyClOqOhoe_BLjiUluhiB3obru921ppz6po" />-->
+        <!-- eddie -->
+        <activity android:name=".eddie.SwipeActivity" />
+        <activity android:name=".eddie.GamePlay" />
 
-
-
+        <!-- asia -->
+        <activity android:name=".bluetoothmode.HostGameActivity" />
+        <activity android:name=".bluetoothmode.HotPotato" />
+        <activity android:name=".bluetoothmode.JoinedPlayerActivity" />
+        <activity android:name=".bluetoothmode.GamePlayActivity" />
+        <activity android:name=".shakefunction.ShakeActivity"/>
     </application>
 </manifest>

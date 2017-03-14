@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion android_compile_version
+    buildToolsVersion android_version
     defaultConfig {
-        applicationId "com.example.android.alphap"
-        minSdkVersion 16
-        targetSdkVersion 25
+        // TODO update to match app id in console
+        applicationId "com.ramonaharrison.gametest1"
+        minSdkVersion android_min_sdk_version
+        targetSdkVersion android_compile_version
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,11 +24,11 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':BaseGameUtils')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
 
-        compile 'com.google.android.gms:play-services:10.2.0'
-
+        compile "com.google.android.gms:play-services-nearby:${gms_library_version}"
     }
 
     )
