@@ -12,4 +12,6 @@
     <color name="purple">#9700AF</color>
     <color name="green">#8DC618</color>
 
+    <color name="black_overlay">#66000000</color>
+
 </resources>

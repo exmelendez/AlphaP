@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="CREATE GAME"
             android:layout_marginTop="15dp"
-            android:onClick="to_new_game"
+            android:onClick="toNewGame"
             android:layout_gravity="center_horizontal"
             />
         <Button
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="JOIN"
             android:layout_marginTop="20dp"
-            android:onClick="to_join_game"
+            android:onClick="toJoinGame"
             android:layout_gravity="center_horizontal" />
 
         <Button
