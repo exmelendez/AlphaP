@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context="com.example.android.alphap.Ridita.TeamNamesActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/creators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/creators"
+            android:textColor="@color/brown"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/asiagibson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/creators"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/asiagibson"
+            android:textColor="@color/brown"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/techlead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/asiagibson"
+            android:layout_centerHorizontal="true"
+            android:text="@string/techlead"
+            android:textColor="@color/orange"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eddiemelendez"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/techlead"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/eddiemelendez"
+            android:textColor="@color/brown"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/demolead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eddiemelendez"
+            android:layout_centerHorizontal="true"
+            android:text="@string/demolead"
+            android:textColor="@color/orange"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/yojanasharma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/demolead"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/yojanasharma"
+            android:textColor="@color/brown"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/designlead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yojanasharma"
+            android:layout_centerHorizontal="true"
+            android:text="@string/designlead"
+            android:textColor="@color/orange"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/riditanizam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/designlead"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/riditanizam"
+            android:textColor="@color/brown"
+            android:textSize="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/riditanizam"
+            android:layout_centerHorizontal="true"
+            android:text="@string/projectmanager"
+            android:textColor="@color/orange"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

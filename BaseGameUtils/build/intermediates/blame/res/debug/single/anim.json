@@ -1,42 +1,42 @@
 [
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_fade_in.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_popup_exit.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_slide_out_bottom.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_slide_in_bottom.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_popup_enter.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_slide_out_top.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_fade_out.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_fade_out.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
-        "source": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/anim/abc_slide_in_top.xml"
+        "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/anim/abc_slide_out_bottom.xml"
     }
 ]

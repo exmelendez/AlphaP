@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
-import com.example.android.alphap.gamemode.StartScreenActivity;
+
+import com.example.android.alphap.bluetoothmode.StartScreenActivity;
 
 public class Splash extends Activity {
 

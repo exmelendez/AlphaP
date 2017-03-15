@@ -22,6 +22,16 @@
     <string name="service_id">com.example.android.alphap</string>
     <string name="connect_text">Connect Tater</string>
 
+    <!-- Team Member Names and Titles-->
+    <string name="creators">Creators</string>
+    <string name="projectmanager">Tech Lead</string>
+    <string name="riditanizam">Ridita Nizam</string>
+    <string name="designlead">Design Lead</string>
+    <string name="yojanasharma">Yojana Sharma</string>
+    <string name="demolead">Demo Lead</string>
+    <string name="eddiemelendez">Eddie Melendez</string>
+    <string name="techlead">Tech Lead</string>
+    <string name="asiagibson">Asia Gibson</string>
 
     <!--  BluetoothChat -->
     <string name="send">Send</string>
