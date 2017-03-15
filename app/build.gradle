@@ -5,7 +5,7 @@ android {
     buildToolsVersion android_version
     defaultConfig {
         // TODO update to match app id in console
-        applicationId "com.ramonaharrison.gametest1"
+        applicationId "com.example.android.alphap"
         minSdkVersion android_min_sdk_version
         targetSdkVersion android_compile_version
         multiDexEnabled true

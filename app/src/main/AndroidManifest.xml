@@ -44,20 +44,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".bluetoothmode.StartScreenActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".bluetoothmode.StartScreenActivity"> </activity>
 
         <!-- google play games -->
         <activity
             android:name=".playgames.PlayActivity"
             android:allowBackup="false"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+
+        </activity>
 
         <!-- eddie -->
         <activity android:name=".eddie.SwipeActivity" />
