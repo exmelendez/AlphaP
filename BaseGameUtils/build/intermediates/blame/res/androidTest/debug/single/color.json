@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_tint.xml",
-        "source": "/Users/asiagibson/.android/build-cache/da5174ac6c80161136ea3c0867f47521ea312257/output/res/color/common_google_signin_btn_tint.xml"
-    },
-    {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_disable_only_material_dark.xml",
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
@@ -12,8 +8,104 @@
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_search_url_text.xml"
     },
     {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_switch_track.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/asiagibson/.android/build-cache/da5174ac6c80161136ea3c0867f47521ea312257/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_edittext.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_search_url_text.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_edittext.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_default.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/asiagibson/.android/build-cache/da5174ac6c80161136ea3c0867f47521ea312257/output/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/e33968922250743cf8934fc9c9ae93ec0026bdf0/output/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_btn_checkable.xml",
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_spinner.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_spinner.xml"
     },
     {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_btn_colored_text_material.xml",
@@ -28,12 +120,8 @@
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_material_light.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_seek_thumb.xml"
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/e33968922250743cf8934fc9c9ae93ec0026bdf0/output/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/switch_thumb_material_light.xml",
@@ -48,24 +136,28 @@
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/asiagibson/.android/build-cache/da5174ac6c80161136ea3c0867f47521ea312257/output/res/color/common_google_signin_btn_text_dark.xml"
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_secondary_text_material_light.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_secondary_text_material_light.xml"
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_switch_thumb.xml"
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_default.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_tint_default.xml"
     },
     {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_hint_foreground_material_light.xml",
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_primary_text_material_dark.xml"
     },
     {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_spinner.xml",
@@ -76,16 +168,16 @@
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_edittext.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_edittext.xml"
-    },
-    {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_switch_track.xml",
         "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_switch_track.xml"
     },
     {
-        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_tint_default.xml",
-        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/color/abc_tint_default.xml"
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/aaccf4012099c3c6d2be49497bf2f59f3e3a1fb5/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/yojanasharma/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/yojanasharma/.android/build-cache/e33968922250743cf8934fc9c9ae93ec0026bdf0/output/res/color/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/androidTest/debug/color/abc_primary_text_material_dark.xml",
