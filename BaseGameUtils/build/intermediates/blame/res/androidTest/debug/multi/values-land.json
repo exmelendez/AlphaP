@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/mona/Desktop/accesscode/AlphaP/BaseGameUtils/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+        "outputFile": "/Users/eXeMt/Desktop/accesscode/Group_Projects/AlphaP/BaseGameUtils/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 120
                 },
                 "from": {
-                    "file": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/values-land/values-land.xml",
+                    "file": "/Users/eXeMt/.android/build-cache/8c1cb3854b5d26693ef90276b0186bcda6c2f984/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/values-land/values-land.xml",
+                    "file": "/Users/eXeMt/.android/build-cache/8c1cb3854b5d26693ef90276b0186bcda6c2f984/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 255
                 },
                 "from": {
-                    "file": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/values-land/values-land.xml",
+                    "file": "/Users/eXeMt/.android/build-cache/8c1cb3854b5d26693ef90276b0186bcda6c2f984/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 323
                 },
                 "from": {
-                    "file": "/Users/mona/.android/build-cache/d6187604d9799145596874897b99d9a541ce4de8/output/res/values-land/values-land.xml",
+                    "file": "/Users/eXeMt/.android/build-cache/8c1cb3854b5d26693ef90276b0186bcda6c2f984/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,

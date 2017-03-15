@@ -4,11 +4,13 @@
 
     <!-- permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <!-- features -->
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -18,46 +20,56 @@
         android:theme="@style/AppTheme">
 
         <!-- meta data -->
-        <meta-data android:name="com.google.android.gms.games.APP_ID"
-                   android:value="@string/app_id"/>
-        <meta-data android:name="com.google.android.gms.version"
-                   android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
-        <!-- <activity
+        <!--
+             <activity
                     android:name=".Splash"
                     android:noHistory="true">
-                </activity> -->
+                </activity>
+        -->
 
-        <activity android:name=".CreateJoinGameActivity" />
-        <activity android:name=".bluetoothmode.StartScreenActivity" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <activity
+            android:name=".CreateJoinGameActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".bluetoothmode.StartScreenActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <!-- google play games -->
         <activity
             android:name=".playgames.PlayActivity"
-            android:label="@string/app_name"
             android:allowBackup="false"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
 
         <!-- eddie -->
         <activity android:name=".eddie.SwipeActivity" />
         <activity android:name=".eddie.GamePlay" />
+
 
         <!-- asia -->
         <activity android:name=".bluetoothmode.HostGameActivity" />
         <activity android:name=".bluetoothmode.HotPotato" />
         <activity android:name=".bluetoothmode.JoinedPlayerActivity" />
         <activity android:name=".bluetoothmode.GamePlayActivity" />
-        <activity android:name=".shakefunction.ShakeActivity"/>
+        <activity android:name=".shakefunction.ShakeActivity" />
     </application>
+
 </manifest>
