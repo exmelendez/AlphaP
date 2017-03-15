@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.alphap.CreateJoinGameActivity">
+
+    <!-- Header/Moving Sun -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center_horizontal"
+        android:background="#2EAADD">
+
+        <ImageView
+            android:id="@+id/header_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sun1" />
+
+    </LinearLayout>
+
+    <!-- Middle/Main Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_weight="3"
+        android:background="#2EAADD">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_rv"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+
+    <!-- bottom section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="@drawable/ground"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tater Pop "
+            android:textSize="80sp"
+            android:textAlignment="center"
+            android:textColor="#DA3000"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/oval"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/ic_face_white_48dp"
+            android:onClick="AboutUs"/>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/aboutus_container"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

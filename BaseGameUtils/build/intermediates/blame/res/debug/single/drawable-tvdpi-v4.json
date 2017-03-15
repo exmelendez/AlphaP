@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
         "source": "/Users/ridita/.android/build-cache/dc2990699f097b89692c191a6c0e038605521941/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
     },
@@ -14,5 +15,21 @@
     {
         "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
         "source": "/Users/ridita/.android/build-cache/dc2990699f097b89692c191a6c0e038605521941/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+=======
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
     }
 ]

@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media.xml",
         "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/layout-v11/notification_template_big_media.xml"
     },
@@ -22,5 +23,29 @@
     {
         "merged": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_custom.xml",
         "source": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/layout-v11/notification_template_big_media_custom.xml"
+=======
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_media_cancel_action.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_media_action.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_custom.xml",
+        "source": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/layout-v11/notification_template_big_media_custom.xml"
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
     }
 ]

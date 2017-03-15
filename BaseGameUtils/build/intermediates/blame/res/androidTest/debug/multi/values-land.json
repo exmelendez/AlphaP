@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "/Users/ridita/Desktop/AccessCode/AlphaP/BaseGameUtils/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+=======
+        "outputFile": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 120
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/values-land/values-land.xml",
+=======
+                    "file": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/values-land/values-land.xml",
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +38,11 @@
                     "endOffset": 184
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/values-land/values-land.xml",
+=======
+                    "file": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/values-land/values-land.xml",
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +61,11 @@
                     "endOffset": 255
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/values-land/values-land.xml",
+=======
+                    "file": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/values-land/values-land.xml",
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +84,11 @@
                     "endOffset": 323
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "/Users/ridita/.android/build-cache/0fbfb8f6c910e533318169c2649063d6b32c7db2/output/res/values-land/values-land.xml",
+=======
+                    "file": "/Users/asiagibson/.android/build-cache/d945e33972bf55e16ecf4fa68690b3930d7e43e1/output/res/values-land/values-land.xml",
+>>>>>>> 1a37052e42e0f608923300f3f59cd51ca14c2f5c
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
