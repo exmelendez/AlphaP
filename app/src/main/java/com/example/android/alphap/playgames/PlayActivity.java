@@ -276,7 +276,7 @@ public class PlayActivity extends AppCompatActivity implements SignInFragment.Li
 
     @Override
     public void scoreOnePoint() {
-        gameManager.scoreOnePoint();
+    //    gameManager.scoreOnePoint();
     }
 }
 
