@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/eXeMt/Desktop/accesscode/Group_Projects/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_standard_off_client.png",
+        "source": "/Users/eXeMt/.android/build-cache/f7ae3b1604db27a80c1d919314085e50430a440d/output/res/drawable-tvdpi-v4/ic_plusone_standard_off_client.png"
+    },
+    {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
         "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
     },
@@ -12,7 +16,19 @@
         "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
     },
     {
+        "merged": "/Users/eXeMt/Desktop/accesscode/Group_Projects/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
+        "source": "/Users/eXeMt/.android/build-cache/f7ae3b1604db27a80c1d919314085e50430a440d/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "/Users/eXeMt/Desktop/accesscode/Group_Projects/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_medium_off_client.png",
+        "source": "/Users/eXeMt/.android/build-cache/f7ae3b1604db27a80c1d919314085e50430a440d/output/res/drawable-tvdpi-v4/ic_plusone_medium_off_client.png"
+    },
+    {
         "merged": "/Users/asiagibson/Desktop/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_small_off_client.png",
         "source": "/Users/asiagibson/.android/build-cache/5a15a4c5d9c531f5474b44f1787b641ba44ed137/output/res/drawable-tvdpi-v4/ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "/Users/eXeMt/Desktop/accesscode/Group_Projects/AlphaP/BaseGameUtils/build/intermediates/res/merged/debug/drawable-tvdpi-v4/ic_plusone_tall_off_client.png",
+        "source": "/Users/eXeMt/.android/build-cache/f7ae3b1604db27a80c1d919314085e50430a440d/output/res/drawable-tvdpi-v4/ic_plusone_tall_off_client.png"
     }
 ]
