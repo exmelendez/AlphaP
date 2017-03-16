@@ -68,6 +68,9 @@ public class MainActivityRVAdapter extends RecyclerView.Adapter<MainActivityRVAd
                         case 1:
                             listener.onJoinGameClicked();
                             break;
+                        case 2:
+                            listener.onSignOutClicked();
+                            break;
                     }
                 }
             });
