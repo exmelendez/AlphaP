@@ -38,16 +38,19 @@ public class MenuFragment extends Fragment {
             throw new RuntimeException(context.toString() + " must implement Listener");
         }
     }
+    public interface Listener {
+        void onCreateGameClicked();
+
+        void onJoinGameClicked();
+
+        void onSignOutClicked();
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_screen2, container, false);
-    }
+        View view = inflater.inflate(R.layout.main_screen2, container, false);
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         appName = (TextView) view.findViewById(R.id.product_name);
         Typeface satisfy_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Satisfy-Regular.ttf");
         appName.setTypeface(satisfy_font);
@@ -65,15 +68,7 @@ public class MenuFragment extends Fragment {
 
         initViews(view);
 
-
-    }
-
-    interface Listener {
-        void onCreateGameClicked();
-
-        void onJoinGameClicked();
-
-        void onSignOutClicked();
+        return view;
     }
 
     private void initViews(View view) {
@@ -99,7 +94,7 @@ public class MenuFragment extends Fragment {
         });
 
 
-        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList);
+        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList,listener);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
@@ -111,6 +106,9 @@ public class MenuFragment extends Fragment {
                 }
 
             });
+
+
+
 
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
@@ -144,3 +142,71 @@ public class MenuFragment extends Fragment {
 
     }
 }
+
+
+
+
+//    @Override
+//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        appName = (TextView) view.findViewById(R.id.product_name);
+//        Typeface satisfy_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Satisfy-Regular.ttf");
+//        appName.setTypeface(satisfy_font);
+//        final ImageView animImageView = (ImageView) view.findViewById(R.id.header_view2);
+//        animImageView.setBackgroundResource(R.drawable.sun_header_anim);
+//        animImageView.setImageAlpha(5);
+//        animImageView.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                AnimationDrawable frameAnimation =
+//                        (AnimationDrawable) animImageView.getBackground();
+//                frameAnimation.start();
+//            }
+//        });
+//
+//        initViews(view);
+//
+//
+//    }
+
+//    interface Listener {
+//        void onCreateGameClicked();
+//
+//        void onJoinGameClicked();
+//
+//        void onSignOutClicked();
+//    }
+//
+//
+//            @Override
+//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+//
+//                View child = rv.findChildViewUnder(e.getX(), e.getY());
+//                if (child != null && gestureDetector.onTouchEvent(e)) {
+//                    int position = rv.getChildAdapterPosition(child);
+//
+//                    if (position == 0) {
+//                        Toast.makeText(getContext(), "Create Activity", Toast.LENGTH_SHORT).show();
+//
+//                    } else {
+//                        Toast.makeText(getContext(), "Join Activity", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }
+//
+//                return false;
+//            }
+//
+//            @Override
+//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+//
+//            }
+//        });
+//
+//    }
+//}

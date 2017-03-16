@@ -1,5 +1,7 @@
 package com.example.android.alphap.eddie;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +10,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.alphap.R;
+import com.example.android.alphap.playgames.MenuFragment;
 
 import java.util.ArrayList;
 
 public class MainActivityRVAdapter extends RecyclerView.Adapter<MainActivityRVAdapter.ViewHolder> {
     private ArrayList<Integer> mainRvPics;
     private ArrayList<String> mainRvTv;
+    private Context context;
+    private MenuFragment.Listener listener;
 
-    public MainActivityRVAdapter(ArrayList<Integer> mainRvPics, ArrayList<String> mainRvTv) {
+    public MainActivityRVAdapter(ArrayList<Integer> mainRvPics, ArrayList<String> mainRvTv, MenuFragment.Listener listener) {
         this.mainRvPics = mainRvPics;
         this.mainRvTv = mainRvTv;
+        this.listener = listener;
     }
 
 
@@ -41,15 +47,30 @@ public class MainActivityRVAdapter extends RecyclerView.Adapter<MainActivityRVAd
 
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView mainRvIvPics;
         private TextView mainRvTv;
+
         public ViewHolder(View view) {
             super(view);
 
-            mainRvIvPics = (ImageView)view.findViewById(R.id.rv_image);
-            mainRvTv  = (TextView)view.findViewById(R.id.rv_tv);
+            mainRvIvPics = (ImageView) view.findViewById(R.id.rv_image);
+            mainRvTv = (TextView) view.findViewById(R.id.rv_tv);
 
+            mainRvIvPics.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent;
+                    switch (getAdapterPosition()) {
+                        case 0:
+                            listener.onCreateGameClicked();
+                            break;
+                        case 1:
+                            listener.onJoinGameClicked();
+                            break;
+                    }
+                }
+            });
         }
     }
 }
