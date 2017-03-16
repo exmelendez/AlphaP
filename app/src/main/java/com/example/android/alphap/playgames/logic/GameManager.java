@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
@@ -53,6 +54,7 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     ArrayList<Participant> mParticipants = null;
     // My participant ID in the currently active game
     String mMyId = null;
+    private List<String> currentPlayers = new ArrayList<>();
     // If non-null, this is the id of the invitation we received via the
     // invitation listener
     String mIncomingInvitationId = null;
@@ -426,6 +428,11 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     private void updateRoom(Room room) {
         if (room != null) {
             mParticipants = room.getParticipants();
+            for (Participant participant : mParticipants) {
+                if (!currentPlayers.contains(participant.getParticipantId())) {
+                    currentPlayers.add(participant.getParticipantId());
+                }
+            }
         }
         if (mParticipants != null) {
             listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
@@ -519,11 +526,11 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
      */
     public void startGame(boolean multiplayer) {
         Log.d(TAG, "Starting game (waiting room returned OK).");
-
         mMultiplayer = multiplayer;
         listener.updateScoreDisplay(mScore);
-
-        broadcastScore(false);
+        Random random = new Random();
+        int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1);
+        sendPotato(false, randomPlayerToStart);
 
         listener.showGameUI();
         listener.showClickMeButton(true);
@@ -560,29 +567,33 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     /**
      * Indicates the player scored one point.
      */
-    public void scoreOnePoint() {
-        if (mSecondsLeft <= 0) {
-            // too late, game is over!
 
-        } else {
-            // Score a point
-            mScore++;
-
-            // Update the scoreboard
-            listener.updateScoreDisplay(mScore);
-            listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
-
-            // Broadcast our new score to our peers
-            broadcastScore(false);
-        }
-    }
+    //TODO keeping score? maybe?
+//    public void scoreOnePoint() {
+//        if (mSecondsLeft <= 0) {
+//            // too late, game is over!
+//
+//        } else {
+//            // Score a point
+//            mScore++;
+//
+//            // Update the scoreboard
+//            listener.updateScoreDisplay(mScore);
+//            listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
+//
+//            // Broadcast our new score to our peers
+//            sendPotato(false);
+//        }
+//    }
 
     /**
      * Time's up; finish the game.
      */
+    //TODO finish game logic
     private void finishGame() {
         listener.showClickMeButton(false);
-        broadcastScore(true);
+        //sendPotato(true);
+        //display LOST or WON message on screens
     }
 
     // Leave the room.
@@ -614,9 +625,14 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     public void onRealTimeMessageReceived(RealTimeMessage rtm) {
         byte[] buf = rtm.getMessageData();
         String sender = rtm.getSenderParticipantId();
-        Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
+        int indexOfPlayer = buf[1];
+        if (mMyId.equals(currentPlayers.get(indexOfPlayer))){
+            //TODO display potato on screen
+        }
+            Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
 
-        if (buf[0] == 'F' || buf[0] == 'U') {
+
+        if (buf[0] == 'T' || buf[0] == 'F') {
             // score update.
             int existingScore = mParticipantScore.containsKey(sender) ?
                     mParticipantScore.get(sender) : 0;
@@ -646,15 +662,15 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     /**
      * Broadcast my score to everybody else.
      */
-    private void broadcastScore(boolean finalScore) {
+    private void sendPotato(boolean hasPotato, int indexOfPlayerWithPotato) {
         if (!mMultiplayer)
             return; // playing single-player mode
 
         // First byte in message indicates whether it's a final score or not
-        mMsgBuf[0] = (byte) (finalScore ? 'F' : 'U');
+        mMsgBuf[0] = (byte) (hasPotato ? 'T' : 'F');
 
-        // Second byte is the score.
-        mMsgBuf[1] = (byte) mScore;
+        // Second byte is the player with the potato.
+        mMsgBuf[1] = (byte) indexOfPlayerWithPotato;
 
         // Send to every other participant.
         for (Participant p : mParticipants) {
@@ -662,7 +678,7 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
                 continue;
             if (p.getStatus() != Participant.STATUS_JOINED)
                 continue;
-            if (finalScore) {
+            if (isPotatoPopped()) {
                 // final score notification must be sent via reliable message
                 Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
                         mRoomId, p.getParticipantId());
@@ -672,6 +688,11 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
                         p.getParticipantId());
             }
         }
+    }
+
+    private boolean isPotatoPopped() {
+        //TODO create logic to check if timer ran out
+        return false;
     }
 
     public void acceptInvite() {
