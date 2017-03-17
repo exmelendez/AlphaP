@@ -1,4 +1,4 @@
-package com.example.android.alphap.Yuri;
+package com.example.android.alphap.yuri;
 
 import android.content.Intent;
 import android.os.Bundle;
