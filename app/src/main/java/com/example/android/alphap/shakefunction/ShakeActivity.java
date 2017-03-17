@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.alphap.R;
@@ -21,7 +20,6 @@ public class ShakeActivity extends AppCompatActivity {
     private Sensor mAccelerometer;
     private ShakeDetect mShakeDetector;
 
-    TextView tv;
     ImageView potatoDude;
 
     @Override
@@ -29,9 +27,7 @@ public class ShakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
 
-        tv = (TextView) findViewById(R.id.test);
         potatoDude = (ImageView) findViewById(R.id.tater_logo);
-
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager
@@ -41,7 +37,6 @@ public class ShakeActivity extends AppCompatActivity {
 
             @Override
             public void onShake(int count) {
-
 
                 handleShakeEvent(count);
             }
@@ -53,15 +48,16 @@ public class ShakeActivity extends AppCompatActivity {
         switch (count) {
             case 1:
                 potatoDude.setVisibility(View.INVISIBLE);
-                Toast.makeText(tv.getContext(), "1 SHAKE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "1 Shake", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
                 potatoDude.setVisibility(View.VISIBLE);
-                Toast.makeText(tv.getContext(), "2ND SHAKE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "2nd Shake Shake", Toast.LENGTH_SHORT).show();
+
                 break;
             case 3:
                 potatoDude.setVisibility(View.INVISIBLE);
-                Toast.makeText(tv.getContext(), "3RD SHAAKE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "3rd Shake", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
                 potatoDude.setVisibility(View.VISIBLE);
