@@ -6,8 +6,6 @@
     <item android:drawable="@drawable/sun2" android:duration="200" />
     <item android:drawable="@drawable/sun3" android:duration="200" />
     <item android:drawable="@drawable/sun4" android:duration="200" />
-    <item android:drawable="@drawable/sun5" android:duration="200" />
-    <item android:drawable="@drawable/sun4" android:duration="200" />
     <item android:drawable="@drawable/sun3" android:duration="200" />
     <item android:drawable="@drawable/sun2" android:duration="200" />
 

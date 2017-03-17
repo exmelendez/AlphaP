@@ -1,73 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#2EAADD">
+    android:background="#2EAADD"
+    android:gravity="center_horizontal">
 
     <!-- Header/Moving Sun -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:gravity="center_horizontal"
-        android:background="#2EAADD">
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="3"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:background="#2EAADD"-->
+        <!--android:layout_gravity="center">-->
 
         <ImageView
             android:id="@+id/header_view2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/sun1" />
+            android:src="@drawable/sun1"
+            android:scaleType="fitStart"
+            android:layout_alignParentTop="true"/>
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <!-- Middle/Main Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_weight="3"
-        android:background="#2EAADD">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="280dp"-->
+        <!--android:layout_weight="3"-->
+        <!--android:background="#2EAADD"-->
+        <!--android:gravity="center_horizontal">-->
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/main_rv"
-            android:scrollbars="none"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never"/>
-
-    </LinearLayout>
-
-    <!-- bottom section -->
-    <LinearLayout
+    <TextView
+        android:id="@+id/product_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:background="@drawable/ground"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:foregroundGravity="center_horizontal"
+        android:paddingBottom="72dp"
+        android:paddingTop="97dp"
+        android:text="Tater Pop "
+        android:textAlignment="center"
+        android:textColor="#DA3000"
+        android:textSize="66sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/product_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tater Pop "
-            android:textSize="80sp"
-            android:textAlignment="center"
-            android:textColor="#DA3000"
-            android:padding="5dp"
-            android:textStyle="bold"/>
+    <!--</LinearLayout>-->
 
-        <ImageView
-            android:id="@+id/fab"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="@drawable/oval"
-            android:layout_marginBottom="15dp"
-            android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_face_white_48dp"
-            android:onClick="AboutUs"/>
+    <!-- bottom section -->
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="3"-->
+        <!--android:background="@drawable/ground"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:orientation="horizontal">-->
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/farm_ground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/product_name"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ground" />
 
-</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_rv"
+        android:scrollbars="none"
+        android:layout_below="@id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never" />
+
+    <ImageView
+        android:id="@+id/signout_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/oval"
+        android:src="@mipmap/logout_96"
+        android:layout_below="@id/main_rv"
+        android:layout_alignParentRight="true"/>
+
+    <!--</LinearLayout>-->
+
+</RelativeLayout>
