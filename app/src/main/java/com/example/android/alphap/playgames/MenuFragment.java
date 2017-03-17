@@ -27,7 +27,7 @@ public class MenuFragment extends Fragment {
     private ArrayList mainRvImages;
     private ArrayList mainRvTvAList;
     private TextView appName;
-    private ImageView aboutUsIcon;
+    private ImageView signoutBtn;
 
     @Override
     public void onAttach(Context context) {
@@ -79,18 +79,18 @@ public class MenuFragment extends Fragment {
 
         mainRvImages = new ArrayList<>();
         mainRvImages.add(R.drawable.tractor_clip_art_470px);
-        mainRvImages.add(R.drawable.barn_clipart_470px);
-        mainRvImages.add(R.drawable.barn_clipart_470px);
+        mainRvImages.add(R.drawable.barn_clipart_350px);
+
+
 
         mainRvTvAList = new ArrayList<>();
         mainRvTvAList.add("Create");
         mainRvTvAList.add("Join");
-        mainRvTvAList.add("Sign Out");
-        aboutUsIcon = (ImageView) view.findViewById(R.id.fab);
-        aboutUsIcon.setOnClickListener(new View.OnClickListener() {
+        signoutBtn = (ImageView) view.findViewById(R.id.signout_btn);
+        signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "About Us Fragment", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "SIGN OUT", Toast.LENGTH_SHORT).show();
 
             }
         });

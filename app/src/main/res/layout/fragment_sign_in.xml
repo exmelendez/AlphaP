@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/screen_sign_in"
+<RelativeLayout android:id="@+id/screen_sign_in"
               xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/farmtwo"
-              android:gravity="center"
-              android:orientation="vertical">
+              android:layout_height="match_parent">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/button_sign_in"
-        style="@style/SignInButton"/>
+    <!-- Header/Moving Sun -->
+    <LinearLayout
+        android:id="@+id/sign_in_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="#2EAADD"
+        android:layout_alignParentTop="true">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/header_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sun1" />
+
+    </LinearLayout>
+
+    <!-- Middle Section/Sign-in -->
+    <RelativeLayout
+        android:id="@+id/sign_in_middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2EAADD"
+        android:layout_below="@id/sign_in_header">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/button_sign_in"
+            style="@style/SignInButton"
+            android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    <!-- bottom section -->
+    <LinearLayout
+        android:id="@+id/sign_in_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ground"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_below="@id/sign_in_middle"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
