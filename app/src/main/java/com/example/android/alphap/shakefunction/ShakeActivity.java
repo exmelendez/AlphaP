@@ -27,10 +27,10 @@ public class ShakeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_swipe);
 
         tv = (TextView) findViewById(R.id.test);
-        potatoDude = (ImageView) findViewById(R.id.game_potato);
+        potatoDude = (ImageView) findViewById(R.id.tater_logo);
 
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);

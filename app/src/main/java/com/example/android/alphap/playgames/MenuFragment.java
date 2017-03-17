@@ -54,6 +54,7 @@ public class MenuFragment extends Fragment {
         appName = (TextView) view.findViewById(R.id.product_name);
         Typeface satisfy_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Satisfy-Regular.ttf");
         appName.setTypeface(satisfy_font);
+
         final ImageView animImageView = (ImageView) view.findViewById(R.id.header_view2);
         animImageView.setBackgroundResource(R.drawable.sun_header_anim);
         animImageView.setImageAlpha(5);
@@ -120,10 +121,10 @@ public class MenuFragment extends Fragment {
                     int position = rv.getChildAdapterPosition(child);
 
                     if (position == 0) {
-                        Toast.makeText(getContext(), "Create Activity", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Create Activity", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(getContext(), "Join Activity", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Join Activity", Toast.LENGTH_SHORT).show();
 
                     }
                 }
