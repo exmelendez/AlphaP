@@ -29,7 +29,6 @@ public class ShakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = (TextView) findViewById(R.id.test);
         potatoDude = (ImageView) findViewById(R.id.game_potato);
 
 

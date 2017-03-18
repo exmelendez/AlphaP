@@ -206,4 +206,10 @@
         <item name="android:textSize">20sp</item>
         <item name="android:layout_marginBottom">20dp</item>
     </style>
+
+    <!--No Fragments Styles-->
+
+
+
+
 </resources>

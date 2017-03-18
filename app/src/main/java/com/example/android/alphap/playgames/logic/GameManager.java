@@ -1,5 +1,6 @@
 package com.example.android.alphap.playgames.logic;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.example.android.alphap.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.Multiplayer;
@@ -22,6 +25,7 @@ import com.google.android.gms.games.multiplayer.realtime.Room;
 import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
 import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
+import com.google.example.games.basegameutils.BaseGameUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -495,6 +499,7 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     }
 
     public void handleSignInResult(Intent intent, int requestCode, int responseCode) {
+
         Log.d(TAG, "onActivityResult with requestCode == RC_SIGN_IN, responseCode="
                 + responseCode + ", intent=" + intent);
         mSignInClicked = false;

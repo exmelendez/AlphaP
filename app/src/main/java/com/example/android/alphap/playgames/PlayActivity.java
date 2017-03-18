@@ -26,7 +26,10 @@ import com.google.example.games.basegameutils.BaseGameUtils;
 import java.util.List;
 import java.util.Map;
 
-public class PlayActivity extends AppCompatActivity implements SignInFragment.Listener, MenuFragment.Listener, GameFragment.Listener, GameManager.Listener {
+public class PlayActivity extends AppCompatActivity implements
+        SignInFragment.Listener,
+        MenuFragment.Listener, GameFragment.Listener,
+        GameManager.Listener {
     public static final String GAME_MANAGER = "GAME_MANAGER";
 
     // Request codes for the UIs that we show with startActivityForResult:
@@ -41,7 +44,7 @@ public class PlayActivity extends AppCompatActivity implements SignInFragment.Li
     private SignInFragment signInFragment;
     private MenuFragment menuFragment;
     private GameFragment gameFragment;
-    private ProgressBar progressBar;
+     ProgressBar progressBar;
     private LinearLayout invitationPopup;
 
     private GameManager gameManager;
@@ -158,13 +161,14 @@ public class PlayActivity extends AppCompatActivity implements SignInFragment.Li
     }
 
 
-    private void showInvitatationPopup(boolean show) {
+    private void showInvitationPopup(boolean show) {
         findViewById(R.id.invitation_popup).setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     /**
      * Updates the label that shows the current user's score
      */
+    //TODO update time?
     @Override
     public void updateScoreDisplay(int score) {
         gameFragment.updateScoreDisplay(score);
@@ -173,9 +177,10 @@ public class PlayActivity extends AppCompatActivity implements SignInFragment.Li
     /**
      * Updates the screen with the scores from other players.
      */
+    //TODO come back to update player screens
     @Override
     public void updatePeerScoresDisplay(List<Participant> participants, Map<String, Integer> participantScore, String roomId, String myId, int myScore) {
-        gameFragment.updatePeerScoresDisplay(participants, participantScore, roomId, myId, myScore);
+       // gameFragment.updatePeerScoresDisplay(participants, participantScore, roomId, myId, myScore);
     }
 
     /**
@@ -238,14 +243,16 @@ public class PlayActivity extends AppCompatActivity implements SignInFragment.Li
         invitationPopup.setVisibility(View.INVISIBLE);
     }
 
+    //TODO show potato
+
     @Override
     public void showClickMeButton(boolean show) {
-        gameFragment.showClickMeButton(show);
+      //  gameFragment.showClickMeButton(show);
     }
 
     @Override
     public void updateCountDown(String countdownText) {
-        gameFragment.updateCountDown(countdownText);
+       // gameFragment.updateCountDown(countdownText);
     }
 
     /**
