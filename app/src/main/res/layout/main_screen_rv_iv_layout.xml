@@ -8,18 +8,22 @@
         android:id="@+id/rv_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TEST"
-        android:textStyle="bold"
-        android:textSize="50sp"
         android:textColor="#ffffff"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="50sp"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/rv_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
         android:foregroundGravity="bottom"
-        android:src="@drawable/todd_tater" />
+        android:maxWidth="280dp"
+        android:maxHeight="267dp"
+        android:src="@drawable/todd_tater"
+        android:scaleType="fitCenter"/>
 
 </LinearLayout>

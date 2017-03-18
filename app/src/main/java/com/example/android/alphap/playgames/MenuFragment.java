@@ -8,9 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -27,7 +25,7 @@ public class MenuFragment extends Fragment {
     private ArrayList mainRvImages;
     private ArrayList mainRvTvAList;
     private TextView appName;
-    private ImageView aboutUsIcon;
+    private ImageView signoutBtn;
 
     @Override
     public void onAttach(Context context) {
@@ -38,6 +36,7 @@ public class MenuFragment extends Fragment {
             throw new RuntimeException(context.toString() + " must implement Listener");
         }
     }
+
     public interface Listener {
         void onCreateGameClicked();
 
@@ -54,6 +53,7 @@ public class MenuFragment extends Fragment {
         appName = (TextView) view.findViewById(R.id.product_name);
         Typeface satisfy_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Satisfy-Regular.ttf");
         appName.setTypeface(satisfy_font);
+
         final ImageView animImageView = (ImageView) view.findViewById(R.id.header_view2);
         animImageView.setBackgroundResource(R.drawable.sun_header_anim);
         animImageView.setImageAlpha(5);
@@ -79,68 +79,24 @@ public class MenuFragment extends Fragment {
 
         mainRvImages = new ArrayList<>();
         mainRvImages.add(R.drawable.tractor_clip_art_470px);
-        mainRvImages.add(R.drawable.barn_clipart_470px);
-        mainRvImages.add(R.drawable.barn_clipart_470px);
+        mainRvImages.add(R.drawable.barn_clipart_350px);
 
         mainRvTvAList = new ArrayList<>();
         mainRvTvAList.add("Create");
         mainRvTvAList.add("Join");
-        mainRvTvAList.add("Sign Out");
-        aboutUsIcon = (ImageView) view.findViewById(R.id.fab);
-        aboutUsIcon.setOnClickListener(new View.OnClickListener() {
+
+        signoutBtn = (ImageView) view.findViewById(R.id.signout_btn);
+        signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "About Us Fragment", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "SIGN OUT", Toast.LENGTH_SHORT).show();
 
             }
         });
 
 
-        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList,listener);
+        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, listener);
         recyclerView.setAdapter(adapter);
-
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
-
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-            });
-
-
-
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-                View child = rv.findChildViewUnder(e.getX(), e.getY());
-                if (child != null && gestureDetector.onTouchEvent(e)) {
-                    int position = rv.getChildAdapterPosition(child);
-
-                    if (position == 0) {
-                        Toast.makeText(getContext(), "Create Activity", Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getContext(), "Join Activity", Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
 
     }
 }
