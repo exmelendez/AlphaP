@@ -19,14 +19,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.android.alphap.eddie.SwipeActivity;
+import com.example.android.alphap.eddie.SwipeCallback;
+import com.example.android.alphap.eddie.SwipeListener;
+import com.example.android.alphap.playgames.MenuFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -62,6 +69,10 @@ public class MainActivity extends AppCompatActivity
      * API INTEGRATION SECTION. This section contains the code that integrates
      * the game with the Google Play game services API.
      */
+
+    private ViewGroup parent;
+    private ImageView cardView;
+
 
     final static String TAG = "Tater PoP";
 
@@ -114,7 +125,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iv = (ImageView) findViewById(R.id.iv_pb);
+        cardView = (ImageView) findViewById(R.id.tater_logo);
+        parent = (ViewGroup) findViewById(R.id.card_parent_layout);
+        SwipeCallback callback = createSwipeCallback();
+        SwipeListener listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
+        cardView.setOnTouchListener(listener);
 
         // Create the Google Api Client with access to Games
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -639,7 +654,7 @@ public class MainActivity extends AppCompatActivity
     // Start the gameplay phase of the game.
     void startGame(boolean multiplayer) {
         mMultiplayer = multiplayer;
-        updatePlayerDisplay();
+     //   updatePlayerDisplay();
 
         Random random = new Random();
         //int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1);
@@ -647,7 +662,6 @@ public class MainActivity extends AppCompatActivity
 
         switchToScreen(R.id.screen_game);
 
-        findViewById(R.id.iv_pb).setVisibility(View.VISIBLE);
 
         // run the gameTick() method every second to update the game.
         final Handler h = new Handler();
@@ -682,6 +696,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     // indicates the player scored one point
+
+    //TODO hasPotato
     void scoreOnePoint() {
         if (mSecondsLeft <= 0)
             return; // too late!
@@ -700,7 +716,7 @@ public class MainActivity extends AppCompatActivity
 
     // Score of other participants. We update this as we receive their scores
     // from the network.
-    Map<String, Integer> mParticipantScore = new HashMap<String, Integer>();
+    Map<String, Boolean> mParticipantScore = new HashMap<String, Boolean>();
 
     // Participants who sent us their final score.
     Set<String> mFinishedParticipants = new HashSet<String>();
@@ -711,32 +727,25 @@ public class MainActivity extends AppCompatActivity
     // whether it's a final or interim score. The second byte is the score.
     // There is also the
     // 'S' message, which indicates that the game should start.
+
     @Override
     public void onRealTimeMessageReceived(RealTimeMessage rtm) {
         byte[] buf = rtm.getMessageData();
         String sender = rtm.getSenderParticipantId();
         int indexOfPlayer = buf[1];
-        if (mMyId.equals(currentPlayers.get(indexOfPlayer))) {
+        if (mMyId.equals(mParticipants.get(indexOfPlayer).getParticipantId())) {
 
         }
         Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
 
 
-        if (buf[0] == 'T' || buf[0] == 'F') {
+        if (buf[0] == 'F' || buf[0] == 'U') {
             // score update.
-            int existingScore = mParticipantScore.containsKey(sender) ?
-                    mParticipantScore.get(sender) : 0;
-            int thisScore = (int) buf[1];
-            if (thisScore > existingScore) {
-                // this check is necessary because packets may arrive out of
-                // order, so we
-                // should only ever consider the highest score we received, as
-                // we know in our
-                // game there is no way to lose points. If there was a way to
-                // lose points,
-                // we'd have to add a "serial number" to the packet.
-                mParticipantScore.put(sender, thisScore);
-            }
+            boolean holdingPotato = mParticipantScore.containsKey(sender) ? mParticipantScore.get(sender) : false;
+            boolean gotPotato = ((int) buf[1] == 1);
+            mParticipantScore.put(sender, gotPotato);
+
+        }
 
             // update the scores on the screen
             // listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
@@ -752,30 +761,42 @@ public class MainActivity extends AppCompatActivity
 
     // Broadcast my score to everybody else.
 
-    private void sendPotato(boolean hasPotato, int indexOfPlayerWithPotato) {
+    private void sendPotato(boolean isGameFinished, int indexOfPlayerWithPotato) {
         if (!mMultiplayer)
             return; // playing single-player mode
 
         // First byte in message indicates whether it's a final score or not
-        mMsgBuf[0] = (byte) (hasPotato ? 'T' : 'F');
+        mMsgBuf[0] = (byte) (isGameFinished ? 'U' : 'F');
 
-        // Second byte is the player with the potato.
-        mMsgBuf[1] = (byte) indexOfPlayerWithPotato;
+        int indexOfCurrentPlayer = mParticipants.indexOf(mMyId);
 
-        // Send to every other participant.
-        for (Participant p : mParticipants) {
-            if (p.getParticipantId().equals(mMyId))
-                continue;
-            if (p.getStatus() != Participant.STATUS_JOINED)
-                continue;
-            if (isPotatoPopped()) {
-                // final score notification must be sent via reliable message
-                Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
-                        mRoomId, p.getParticipantId());
-            } else {
-                // it's an interim score notification, so we can use unreliable
-                Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
-                        p.getParticipantId());
+        if (indexOfCurrentPlayer == mParticipants.size() - 1) {
+            //Pass to 0 index if we pass right other wise index of player w potato == size -1
+        } else if (indexOfCurrentPlayer == 0) {
+            //pass to last index if swiping left, if we pass right index of player w potato == 1
+        } else {
+            //index of player w potato == mParticipants.indexOf(mMyId) +1
+
+
+            // Second byte is the player with the potato.
+            mMsgBuf[1] = (byte) indexOfPlayerWithPotato;
+
+
+            // Send to every other participant.
+            for (Participant p : mParticipants) {
+                if (p.getParticipantId().equals(mMyId))
+                    continue;
+                if (p.getStatus() != Participant.STATUS_JOINED)
+                    continue;
+                if (isPotatoPopped()) {
+                    // final score notification must be sent via reliable message
+                    Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
+                            mRoomId, p.getParticipantId());
+                } else {
+                    // it's an interim score notification, so we can use unreliable
+                    Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
+                            p.getParticipantId());
+                }
             }
         }
     }
@@ -835,9 +856,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     // updates the label that shows my score
-    void updatePlayerDisplay() {
-        // ((TextView) findViewById(R.id.my_score)).setText(formatScore(mScore));
-    }
+//    void updatePlayerDisplay() {
+//        // ((TextView) findViewById(R.id.my_score)).setText(formatScore(mScore));
+//    }
 
     // formats a score as a three-digit number
     String formatScore(int i) {
@@ -846,6 +867,32 @@ public class MainActivity extends AppCompatActivity
         String s = String.valueOf(i);
         return s.length() == 1 ? "00" + s : s.length() == 2 ? "0" + s : s;
     }
+
+//    void updatePlayerDisplay() {
+//        ((TextView) findViewById(R.id.score0)).setText(formatScore(mScore) + " - Me");
+//        int[] arr = {
+//                R.id.score1, R.id.score2, R.id.score3
+//        };
+//        int i = 0;
+//
+//        if (mRoomId != null) {
+//            for (Participant p : mParticipants) {
+//                String pid = p.getParticipantId();
+//                if (pid.equals(mMyId))
+//                    continue;
+//                if (p.getStatus() != Participant.STATUS_JOINED)
+//                    continue;
+//                int score = mParticipantScore.containsKey(pid) ? mParticipantScore.get(pid) : 0;
+//                ((TextView) findViewById(arr[i])).setText(formatScore(score) + " - " +
+//                        p.getDisplayName());
+//                ++i;
+//            }
+//        }
+//
+//        for (; i < arr.length; ++i) {
+//            ((TextView) findViewById(arr[i])).setText("");
+//        }
+//    }
 
 
 
@@ -867,4 +914,29 @@ public class MainActivity extends AppCompatActivity
     void stopKeepingScreenOn() {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
+
+    public SwipeCallback createSwipeCallback() {
+        return new SwipeCallback() {
+            @Override
+            public void cardSwipedLeft(View card) {
+                Toast.makeText(getApplicationContext(), "LEFT!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void cardSwipedRight(View card) {
+                Toast.makeText(getApplicationContext(), "RIGHT!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void cardOffScreen(View card) {
+
+            }
+
+            @Override
+            public boolean isDragEnabled() {
+                return true;
+            }
+        };
+    }
+
 }
