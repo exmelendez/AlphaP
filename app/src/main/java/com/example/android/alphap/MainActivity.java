@@ -19,7 +19,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -28,7 +27,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.alphap.playgames.MenuFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -668,6 +666,9 @@ public class MainActivity extends AppCompatActivity
     void gameTick() {
         if (mSecondsLeft > 0) {
             --mSecondsLeft;
+
+            //mParticipant + myid (
+
           //  ((TextView) findViewById(R.id.countdown)).setText("0:" +
             //        (mSecondsLeft < 10 ? "0" : "") + String.valueOf(mSecondsLeft));
 
