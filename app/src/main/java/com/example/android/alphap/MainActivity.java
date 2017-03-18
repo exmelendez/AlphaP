@@ -680,14 +680,17 @@ public class MainActivity extends AppCompatActivity
     void gameTick() {
         if (mSecondsLeft > 0) {
             --mSecondsLeft;
-            //  ((TextView) findViewById(R.id.countdown)).setText("0:" +
+
+            //mParticipant + myid (
+
+          //  ((TextView) findViewById(R.id.countdown)).setText("0:" +
             //        (mSecondsLeft < 10 ? "0" : "") + String.valueOf(mSecondsLeft));
 
         }
         if (mSecondsLeft <= 0) {
             // finish game
-            // findViewById(R.id.button_click_me).setVisibility(View.GONE);
-            sendPotato(true, mParticipants.indexOf(mParticipants));
+           // findViewById(R.id.button_click_me).setVisibility(View.GONE);
+            sendPotato(true, currentPlayers.indexOf(currentPlayers));
         }
 
     }
@@ -699,7 +702,7 @@ public class MainActivity extends AppCompatActivity
         if (mSecondsLeft <= 0)
             return; // too late!
         ++mScore;
-        //updatePlayerDisplay();
+        updatePlayerDisplay();
         //  updatePeerScoresDisplay();
 
         // broadcast our new score to our peers
@@ -744,13 +747,14 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        // update the scores on the screen
-        // listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
+            // update the scores on the screen
+            // listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
 
-        // if it's a final score, mark this participant as having finished
-        // the game
-        if ((char) buf[0] == 'F') {
-            mFinishedParticipants.add(rtm.getSenderParticipantId());
+            // if it's a final score, mark this participant as having finished
+            // the game
+            if ((char) buf[0] == 'F') {
+                mFinishedParticipants.add(rtm.getSenderParticipantId());
+            }
         }
     }
 
