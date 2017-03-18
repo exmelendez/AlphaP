@@ -715,7 +715,7 @@ public class MainActivity extends AppCompatActivity
         byte[] buf = rtm.getMessageData();
         String sender = rtm.getSenderParticipantId();
         int indexOfPlayer = buf[1];
-        if (mMyId.equals(currentPlayers.get(indexOfPlayer))) {
+        if (mMyId.equals(mParticipants.get(indexOfPlayer).getParticipantId())) {
 
         }
         Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
