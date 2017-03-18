@@ -29,12 +29,10 @@ public class SwipeActivity extends AppCompatActivity {
         return new SwipeCallback() {
             @Override
             public void cardSwipedLeft(View card) {
-                Toast.makeText(SwipeActivity.this, "LEFT!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void cardSwipedRight(View card) {
-                Toast.makeText(SwipeActivity.this, "RIGHT!", Toast.LENGTH_SHORT).show();
             }
 
             @Override

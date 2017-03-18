@@ -30,7 +30,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.alphap.eddie.SwipeActivity;
 import com.example.android.alphap.eddie.SwipeCallback;
 import com.example.android.alphap.eddie.SwipeListener;
 import com.example.android.alphap.playgames.MenuFragment;
@@ -106,6 +105,9 @@ public class MainActivity extends AppCompatActivity
 
     // The participants in the currently active game
     ArrayList<Participant> mParticipants = null;
+
+    private int playerWithPotato;
+
     private List<String> currentPlayers = new ArrayList<>();
 
     // My participant ID in the currently active game
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         cardView = (ImageView) findViewById(R.id.tater_logo);
         parent = (ViewGroup) findViewById(R.id.card_parent_layout);
@@ -654,11 +657,11 @@ public class MainActivity extends AppCompatActivity
     // Start the gameplay phase of the game.
     void startGame(boolean multiplayer) {
         mMultiplayer = multiplayer;
-     //   updatePlayerDisplay();
+        //   updatePlayerDisplay();
 
         Random random = new Random();
-        //int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1);
-        sendPotato(false, 1);
+        int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1);
+        sendPotato(randomPlayerToStart);
 
         switchToScreen(R.id.screen_game);
 
@@ -687,7 +690,7 @@ public class MainActivity extends AppCompatActivity
         if (mSecondsLeft <= 0) {
             // finish game
             // findViewById(R.id.button_click_me).setVisibility(View.GONE);
-            sendPotato(true, mParticipants.indexOf(mParticipants));
+            sendPotato(playerWithPotato);
         }
 
     }
@@ -730,7 +733,9 @@ public class MainActivity extends AppCompatActivity
         byte[] buf = rtm.getMessageData();
         String sender = rtm.getSenderParticipantId();
         int indexOfPlayer = buf[1];
+        playerWithPotato = indexOfPlayer;
         if (mMyId.equals(mParticipants.get(indexOfPlayer).getParticipantId())) {
+            cardView.setVisibility(View.VISIBLE);
 
         }
         Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
@@ -757,45 +762,38 @@ public class MainActivity extends AppCompatActivity
 
     // Broadcast my score to everybody else.
 
-    private void sendPotato(boolean isGameFinished, int indexOfPlayerWithPotato) {
+    private void sendPotato(int indexOfPlayerWithPotato) {
         if (!mMultiplayer)
             return; // playing single-player mode
 
         // First byte in message indicates whether it's a final score or not
-        mMsgBuf[0] = (byte) (isGameFinished ? 'U' : 'F');
+        mMsgBuf[0] = (byte) 'T';
 
-        int indexOfCurrentPlayer = mParticipants.indexOf(mMyId);
-
-        if (indexOfCurrentPlayer == mParticipants.size() - 1) {
-            //Pass to 0 index if we pass right other wise index of player w potato == size -1
-        } else if (indexOfCurrentPlayer == 0) {
-            //pass to last index if swiping left, if we pass right index of player w potato == 1
-        } else {
-            //index of player w potato == mParticipants.indexOf(mMyId) +1
+        //index of player w potato == mParticipants.indexOf(mMyId) +1
 
 
-            // Second byte is the player with the potato.
-            mMsgBuf[1] = (byte) indexOfPlayerWithPotato;
+        // Second byte is the player with the potato.
+        mMsgBuf[1] = (byte) indexOfPlayerWithPotato;
 
 
-            // Send to every other participant.
-            for (Participant p : mParticipants) {
-                if (p.getParticipantId().equals(mMyId))
-                    continue;
-                if (p.getStatus() != Participant.STATUS_JOINED)
-                    continue;
-                if (isPotatoPopped()) {
-                    // final score notification must be sent via reliable message
-                    Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
-                            mRoomId, p.getParticipantId());
-                } else {
-                    // it's an interim score notification, so we can use unreliable
-                    Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
-                            p.getParticipantId());
-                }
-            }
+        // Send to every other participant.
+        for (Participant p : mParticipants) {
+            if (p.getParticipantId().equals(mMyId))
+                continue;
+            if (p.getStatus() != Participant.STATUS_JOINED)
+                continue;
+//            if (isPotatoPopped()) {
+//                // final score notification must be sent via reliable message
+//                Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
+//                        mRoomId, p.getParticipantId());
+//            }
+            // it's an interim score notification, so we can use unreliable
+            Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
+                    p.getParticipantId());
+
         }
     }
+
 
     private boolean isPotatoPopped() {
         //TODO create logic to check if timer ran out
@@ -912,15 +910,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     public SwipeCallback createSwipeCallback() {
+        final int indexOfCurrentPlayer = mParticipants.indexOf(mMyId);
         return new SwipeCallback() {
             @Override
             public void cardSwipedLeft(View card) {
                 Toast.makeText(getApplicationContext(), "LEFT!", Toast.LENGTH_SHORT).show();
+                if (indexOfCurrentPlayer == 0) {
+                    sendPotato(mParticipants.size() - 1);
+                } else {
+                    sendPotato(indexOfCurrentPlayer - 1);
+                }
             }
 
             @Override
             public void cardSwipedRight(View card) {
                 Toast.makeText(getApplicationContext(), "RIGHT!", Toast.LENGTH_SHORT).show();
+                if (indexOfCurrentPlayer == mParticipants.size() - 1) {
+                    //Pass to index of player w potato == size -2
+                    sendPotato(0);
+                } else {
+                    sendPotato(indexOfCurrentPlayer + 1);
+                }
             }
 
             @Override
