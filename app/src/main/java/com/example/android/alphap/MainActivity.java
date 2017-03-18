@@ -752,9 +752,7 @@ public class MainActivity extends AppCompatActivity
         if (mMyId.equals(mParticipants.get(indexOfPlayer).getParticipantId())) {
             Log.d(TAG, "onRealTimeMessageReceived: recieved potato");
             cardView.setVisibility(View.VISIBLE);
-            cardView.setY(150);
-            cardView.setX(150);
-            cardView.requestFocus();
+
 
         } else {
             cardView.setVisibility(View.INVISIBLE);
