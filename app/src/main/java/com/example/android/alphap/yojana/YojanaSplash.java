@@ -23,7 +23,7 @@ public class YojanaSplash extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_yojana);
+        setContentView(R.layout.yojana_splash);
 
         space_imageview = (ImageView) findViewById(R.id.space_image);
         potato_imageview = (ImageView) findViewById(R.id.image_potato);
