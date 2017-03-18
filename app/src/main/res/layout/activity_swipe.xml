@@ -6,11 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/activity_swipe_layout">
 
-    <RelativeLayout
-        android:id="@+id/card_parent_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true">
+
 
         <include layout="@layout/activities_background"/>
 
@@ -23,6 +19,6 @@
             android:src="@drawable/todd_tater"
             android:layout_centerInParent="true"/>
 
-    </RelativeLayout>
+
 
 </RelativeLayout>

@@ -19,7 +19,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -32,7 +31,6 @@ import android.widget.Toast;
 
 import com.example.android.alphap.eddie.SwipeCallback;
 import com.example.android.alphap.eddie.SwipeListener;
-import com.example.android.alphap.playgames.MenuFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -105,7 +103,7 @@ public class MainActivity extends AppCompatActivity
 
     // The participants in the currently active game
     ArrayList<Participant> mParticipants = null;
-
+    int indexOfCurrentPlayer = 1;
     private int playerWithPotato;
 
     private List<String> currentPlayers = new ArrayList<>();
@@ -129,10 +127,10 @@ public class MainActivity extends AppCompatActivity
 
 
         cardView = (ImageView) findViewById(R.id.tater_logo);
-        parent = (ViewGroup) findViewById(R.id.card_parent_layout);
-        SwipeCallback callback = createSwipeCallback();
-        SwipeListener listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
-        cardView.setOnTouchListener(listener);
+        parent = (ViewGroup) findViewById(R.id.activity_swipe_layout);
+//        SwipeCallback callback = createSwipeCallback();
+//        SwipeListener listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
+//        cardView.setOnTouchListener(listener);
 
         // Create the Google Api Client with access to Games
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -650,18 +648,25 @@ public class MainActivity extends AppCompatActivity
     void resetGameVars() {
         mSecondsLeft = GAME_DURATION;
         mScore = 0;
-        mParticipantScore.clear();
+        mHasPotatoMap.clear();
         mFinishedParticipants.clear();
     }
 
+    SwipeListener listener;
+
     // Start the gameplay phase of the game.
     void startGame(boolean multiplayer) {
+
+        SwipeCallback callback = createSwipeCallback();
+        listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
+        cardView.setOnTouchListener(listener);
+
         mMultiplayer = multiplayer;
         //   updatePlayerDisplay();
 
         Random random = new Random();
-        int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1);
-        sendPotato(randomPlayerToStart);
+//        int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1)+1;
+        sendPotato(1);
 
         switchToScreen(R.id.screen_game);
 
@@ -716,7 +721,7 @@ public class MainActivity extends AppCompatActivity
 
     // Score of other participants. We update this as we receive their scores
     // from the network.
-    Map<String, Boolean> mParticipantScore = new HashMap<String, Boolean>();
+    Map<String, Boolean> mHasPotatoMap = new HashMap<String, Boolean>();
 
     // Participants who sent us their final score.
     Set<String> mFinishedParticipants = new HashSet<String>();
@@ -731,26 +736,44 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onRealTimeMessageReceived(RealTimeMessage rtm) {
         byte[] buf = rtm.getMessageData();
+
+        Log.d(TAG, "onRealTimeMessageReceived: BUF  " + buf.length);
         String sender = rtm.getSenderParticipantId();
+
+        Log.d(TAG, "onRealTimeMessageReceived: PLYR INDEX " + indexOfCurrentPlayer);
         int indexOfPlayer = buf[1];
+
+
         playerWithPotato = indexOfPlayer;
+
+
+        indexOfCurrentPlayer = playerWithPotato;
+
         if (mMyId.equals(mParticipants.get(indexOfPlayer).getParticipantId())) {
+            Log.d(TAG, "onRealTimeMessageReceived: recieved potato");
             cardView.setVisibility(View.VISIBLE);
+            cardView.setY(150);
+            cardView.setX(150);
+            cardView.requestFocus();
+
+        } else {
+            cardView.setVisibility(View.INVISIBLE);
 
         }
+
         Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
 
 
         if (buf[0] == 'F' || buf[0] == 'U') {
             // score update.
-            boolean holdingPotato = mParticipantScore.containsKey(sender) ? mParticipantScore.get(sender) : false;
+            boolean holdingPotato = mHasPotatoMap.containsKey(sender) ? mHasPotatoMap.get(sender) : false;
             boolean gotPotato = ((int) buf[1] == 1);
-            mParticipantScore.put(sender, gotPotato);
+            mHasPotatoMap.put(sender, gotPotato);
 
         }
 
         // update the scores on the screen
-        // listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
+        // listener.updatePeerScoresDisplay(mParticipants, mHasPotatoMap, mRoomId, mMyId, mScore);
 
         // if it's a final score, mark this participant as having finished
         // the game
@@ -876,7 +899,7 @@ public class MainActivity extends AppCompatActivity
 //                    continue;
 //                if (p.getStatus() != Participant.STATUS_JOINED)
 //                    continue;
-//                int score = mParticipantScore.containsKey(pid) ? mParticipantScore.get(pid) : 0;
+//                int score = mHasPotatoMap.containsKey(pid) ? mHasPotatoMap.get(pid) : 0;
 //                ((TextView) findViewById(arr[i])).setText(formatScore(score) + " - " +
 //                        p.getDisplayName());
 //                ++i;
@@ -910,25 +933,37 @@ public class MainActivity extends AppCompatActivity
     }
 
     public SwipeCallback createSwipeCallback() {
-        final int indexOfCurrentPlayer = mParticipants.indexOf(mMyId);
+        Log.d(TAG, "createSwipeCallback: swipe call back");
+
+
+        for (int i = 0; i < mParticipants.size() - 1; i++) {
+            Log.d(TAG, "createSwipeCallback: INDEX of curr player" + indexOfCurrentPlayer);
+            if (mParticipants.get(i).getParticipantId().equals(mMyId)) {
+                indexOfCurrentPlayer = i;
+            }
+
+        }
+
         return new SwipeCallback() {
             @Override
             public void cardSwipedLeft(View card) {
-                Toast.makeText(getApplicationContext(), "LEFT!", Toast.LENGTH_SHORT).show();
                 if (indexOfCurrentPlayer == 0) {
+                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(mParticipants.size() - 1);
                 } else {
+                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(indexOfCurrentPlayer - 1);
                 }
             }
 
             @Override
             public void cardSwipedRight(View card) {
-                Toast.makeText(getApplicationContext(), "RIGHT!", Toast.LENGTH_SHORT).show();
                 if (indexOfCurrentPlayer == mParticipants.size() - 1) {
+                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     //Pass to index of player w potato == size -2
                     sendPotato(0);
                 } else {
+                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(indexOfCurrentPlayer + 1);
                 }
             }
