@@ -675,7 +675,7 @@ public class MainActivity extends AppCompatActivity
         if (mSecondsLeft <= 0) {
             // finish game
            // findViewById(R.id.button_click_me).setVisibility(View.GONE);
-            sendPotato(true, currentPlayers.indexOf(currentPlayers));
+            sendPotato(true, mParticipants.indexOf(mParticipants));
         }
 
     }
@@ -710,6 +710,7 @@ public class MainActivity extends AppCompatActivity
     // whether it's a final or interim score. The second byte is the score.
     // There is also the
     // 'S' message, which indicates that the game should start.
+
     @Override
     public void onRealTimeMessageReceived(RealTimeMessage rtm) {
         byte[] buf = rtm.getMessageData();
