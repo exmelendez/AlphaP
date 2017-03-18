@@ -39,7 +39,7 @@
 
         <!-- google play games -->
         <activity
-            android:name=".playgames.PlayActivity"
+            android:name=".MainActivity"
             android:allowBackup="false"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
