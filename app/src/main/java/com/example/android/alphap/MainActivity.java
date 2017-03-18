@@ -681,6 +681,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     // indicates the player scored one point
+
+    //TODO hasPotato
     void scoreOnePoint() {
         if (mSecondsLeft <= 0)
             return; // too late!
@@ -699,7 +701,7 @@ public class MainActivity extends AppCompatActivity
 
     // Score of other participants. We update this as we receive their scores
     // from the network.
-    Map<String, Integer> mParticipantScore = new HashMap<String, Integer>();
+    Map<String, Boolean> mParticipantScore = new HashMap<String, Boolean>();
 
     // Participants who sent us their final score.
     Set<String> mFinishedParticipants = new HashSet<String>();
@@ -722,21 +724,12 @@ public class MainActivity extends AppCompatActivity
         Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
 
 
-        if (buf[0] == 'T' || buf[0] == 'F') {
+        if (buf[0] == 'F' || buf[0] == 'U') {
             // score update.
-            int existingScore = mParticipantScore.containsKey(sender) ?
-                    mParticipantScore.get(sender) : 0;
-            int thisScore = (int) buf[1];
-            if (thisScore > existingScore) {
-                // this check is necessary because packets may arrive out of
-                // order, so we
-                // should only ever consider the highest score we received, as
-                // we know in our
-                // game there is no way to lose points. If there was a way to
-                // lose points,
-                // we'd have to add a "serial number" to the packet.
-                mParticipantScore.put(sender, thisScore);
-            }
+            boolean holdingPotato = mParticipantScore.containsKey(sender) ? mParticipantScore.get(sender) : false;
+            boolean gotPotato = ((int) buf[1] == 1);
+            mParticipantScore.put(sender, gotPotato);
+        }
 
             // update the scores on the screen
             // listener.updatePeerScoresDisplay(mParticipants, mParticipantScore, mRoomId, mMyId, mScore);
@@ -835,9 +828,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     // updates the label that shows my score
-    void updatePlayerDisplay() {
-        // ((TextView) findViewById(R.id.my_score)).setText(formatScore(mScore));
-    }
+//    void updatePlayerDisplay() {
+//        // ((TextView) findViewById(R.id.my_score)).setText(formatScore(mScore));
+//    }
 
     // formats a score as a three-digit number
     String formatScore(int i) {
@@ -845,6 +838,32 @@ public class MainActivity extends AppCompatActivity
             i = 0;
         String s = String.valueOf(i);
         return s.length() == 1 ? "00" + s : s.length() == 2 ? "0" + s : s;
+    }
+
+    void updatePlayerDisplay() {
+        ((TextView) findViewById(R.id.score0)).setText(formatScore(mScore) + " - Me");
+        int[] arr = {
+                R.id.score1, R.id.score2, R.id.score3
+        };
+        int i = 0;
+
+        if (mRoomId != null) {
+            for (Participant p : mParticipants) {
+                String pid = p.getParticipantId();
+                if (pid.equals(mMyId))
+                    continue;
+                if (p.getStatus() != Participant.STATUS_JOINED)
+                    continue;
+                int score = mParticipantScore.containsKey(pid) ? mParticipantScore.get(pid) : 0;
+                ((TextView) findViewById(arr[i])).setText(formatScore(score) + " - " +
+                        p.getDisplayName());
+                ++i;
+            }
+        }
+
+        for (; i < arr.length; ++i) {
+            ((TextView) findViewById(arr[i])).setText("");
+        }
     }
 
 
