@@ -8,11 +8,12 @@
 
     <ImageView
         android:id="@+id/space_image"
-        android:layout_width="500dp"
-        android:layout_height="400dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="centerInside"
+        android:layout_width="1500dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+
         android:src="@drawable/through_space" />
+    <!--android:scaleType="centerInside"-->
 
 
     <ImageView
