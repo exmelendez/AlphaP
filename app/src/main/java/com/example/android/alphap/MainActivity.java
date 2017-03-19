@@ -19,7 +19,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,10 +29,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.alphap.eddie.SwipeActivity;
 import com.example.android.alphap.eddie.SwipeCallback;
 import com.example.android.alphap.eddie.SwipeListener;
-import com.example.android.alphap.playgames.MenuFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -431,7 +428,6 @@ public class MainActivity extends AppCompatActivity
             mIncomingInvitationId = null;
             switchToScreen(mCurScreen); // This will hide the invitation popup
         }
-
     }
 
     /*
@@ -702,7 +698,7 @@ public class MainActivity extends AppCompatActivity
         if (mSecondsLeft <= 0)
             return; // too late!
         ++mScore;
-        updatePlayerDisplay();
+      //  updatePlayerDisplay();
         //  updatePeerScoresDisplay();
 
         // broadcast our new score to our peers
@@ -756,7 +752,7 @@ public class MainActivity extends AppCompatActivity
                 mFinishedParticipants.add(rtm.getSenderParticipantId());
             }
         }
-    }
+
 
 
     // Broadcast my score to everybody else.
