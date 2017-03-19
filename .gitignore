@@ -5,6 +5,7 @@
 /.idea/libraries
 .DS_Store
 /build
+BaseGameUtils/build
 /captures
 .externalNativeBuild
 .idea/misc.xml
