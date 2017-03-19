@@ -31,6 +31,8 @@ import android.widget.Toast;
 
 import com.example.android.alphap.eddie.SwipeCallback;
 import com.example.android.alphap.eddie.SwipeListener;
+import com.example.android.alphap.messaging.MessageAttempt;
+import com.example.android.alphap.messaging.ReliableMessageHandler;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -62,7 +64,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener, RealTimeMessageReceivedListener,
-        RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener {
+        RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener, ReliableMessageHandler.ReliableMessageResultListener {
 
     /*
      * API INTEGRATION SECTION. This section contains the code that integrates
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity
 
     // Client used to interact with Google APIs.
     private GoogleApiClient mGoogleApiClient;
+    private ReliableMessageHandler messageHandler;
 
     // Are we currently resolving a connection failure?
     private boolean mResolvingConnectionFailure = false;
@@ -120,12 +123,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         cardView = (ImageView) findViewById(R.id.tater_logo);
         parent = (ViewGroup) findViewById(R.id.activity_swipe_layout);
-//        SwipeCallback callback = createSwipeCallback();
-//        SwipeListener listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
-//        cardView.setOnTouchListener(listener);
 
         // Create the Google Api Client with access to Games
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -134,6 +133,7 @@ public class MainActivity extends AppCompatActivity
                 .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .build();
 
+        messageHandler = new ReliableMessageHandler(mGoogleApiClient, this);
 
         // set up a click listener for everything we care about
         for (int id : CLICKABLES) {
@@ -835,8 +835,10 @@ public class MainActivity extends AppCompatActivity
 //                        mRoomId, p.getParticipantId());
 //            }
             // it's an interim score notification, so we can use unreliable
-            Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
-                    p.getParticipantId());
+//            Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
+//                    p.getParticipantId());
+
+            messageHandler.send(new MessageAttempt(mMsgBuf, mRoomId, p.getParticipantId(), 2));
 
         }
     }
@@ -1006,4 +1008,15 @@ public class MainActivity extends AppCompatActivity
 
     };
 
+    @Override
+    public void handleReliableMessageFailure(int retryStatusCode) {
+        Toast.makeText(getApplicationContext(), "Oops... Something went wrong. Please check your connection and try again.", Toast.LENGTH_LONG).show();
+
+        leaveRoom();
+    }
+
+    @Override
+    public void showLoadingOnDelay() {
+
+    }
 }
