@@ -76,5 +76,6 @@
     <string name="game_problem">An error occurred while starting the game. Please try again.</string>
     <string name="click_me">Click me!</string>
     <string name="is_inviting_you">is challenging you to a game!</string>
+    <string name="tater_pop">Tater Pop</string>
 
 </resources>

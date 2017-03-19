@@ -19,7 +19,7 @@ public class SwipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
         cardView = (ImageView) findViewById(R.id.tater_logo);
-        parent = (ViewGroup) findViewById(R.id.card_parent_layout);
+        parent = (ViewGroup) findViewById(R.id.activity_swipe_layout);
         SwipeCallback callback = createSwipeCallback();
         SwipeListener listener = new SwipeListener(cardView, callback, parent, parent.getPaddingLeft(), parent.getPaddingTop(), 15f, 0f);
         cardView.setOnTouchListener(listener);
@@ -29,12 +29,10 @@ public class SwipeActivity extends AppCompatActivity {
         return new SwipeCallback() {
             @Override
             public void cardSwipedLeft(View card) {
-                Toast.makeText(SwipeActivity.this, "LEFT!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void cardSwipedRight(View card) {
-                Toast.makeText(SwipeActivity.this, "RIGHT!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
