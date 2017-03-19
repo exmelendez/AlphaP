@@ -628,6 +628,10 @@ public class MainActivity extends AppCompatActivity
         mScore = 0;
         mHasPotatoMap.clear();
         mFinishedParticipants.clear();
+
+        findViewById(R.id.checkmark).setVisibility(View.GONE);
+        findViewById(R.id.ex).setVisibility(View.GONE);
+
     }
 
     SwipeListener listener;
@@ -674,7 +678,7 @@ public class MainActivity extends AppCompatActivity
                     findViewById(R.id.ex).setVisibility(View.VISIBLE);
                     //l  sendPotato(playerWithPotato);
                 }else{
-                    findViewById(R.id.tater_logo).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.tater_logo).setVisibility(View.GONE);
 
                     findViewById(R.id.checkmark).setVisibility(View.VISIBLE);
                 }

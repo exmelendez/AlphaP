@@ -99,6 +99,7 @@
 
         <TextView
             style="@style/Blurb"
+            android:textColor="#ffffff"
             android:text="@string/please_wait" />
     </LinearLayout>
 
