@@ -2,12 +2,15 @@ package com.example.android.alphap.playgames.logic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import com.example.android.alphap.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -35,6 +38,8 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 
 public class GameManager extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, RealTimeMessageReceivedListener, RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener {
+
+
 
     // Request codes for the UIs that we show with startActivityForResult:
     final static int RC_SELECT_PLAYERS = 10000;
@@ -79,7 +84,7 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     private Listener listener;
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context) {  //onAttach is specific to fragments
         super.onAttach(context);
         if (context instanceof Listener) {
             listener = (Listener) context;
@@ -92,6 +97,8 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
+
 
         // Create the Google Api Client with access to Games
         mGoogleApiClient = new GoogleApiClient.Builder(getContext()).addConnectionCallbacks(this)
@@ -592,7 +599,12 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
         listener.showClickMeButton(false);
         //sendPotato(true);
         //display LOST or WON message on screens
+        //increment gamesLost or gamesWon;
+        //increment totalPoints
+
     }
+
+
 
     // Leave the room.
     public void leaveRoom() {
@@ -624,10 +636,10 @@ public class GameManager extends Fragment implements GoogleApiClient.ConnectionC
         byte[] buf = rtm.getMessageData();
         String sender = rtm.getSenderParticipantId();
         int indexOfPlayer = buf[1];
-        if (mMyId.equals(currentPlayers.get(indexOfPlayer))){
+        if (mMyId.equals(currentPlayers.get(indexOfPlayer))) {
             //TODO display potato on screen
         }
-            Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
+        Log.d(TAG, "Message received: " + (char) buf[0] + "/" + (int) buf[1]);
 
 
         if (buf[0] == 'T' || buf[0] == 'F') {

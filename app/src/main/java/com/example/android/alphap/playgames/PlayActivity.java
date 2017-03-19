@@ -23,6 +23,7 @@ import com.google.android.gms.games.multiplayer.Participant;
 import com.google.android.gms.games.multiplayer.realtime.Room;
 import com.google.example.games.basegameutils.BaseGameUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,13 +31,20 @@ public class PlayActivity extends AppCompatActivity implements
         SignInFragment.Listener,
         MenuFragment.Listener, GameFragment.Listener,
         GameManager.Listener {
+
+    //Played game first time- GamesPlayed variable gamesPlayed
+    //Lost 3 times in a row- check how many times lost gamesLost
+    //Reached 500 points
+    //TODO: Make sure to set a limit to how long a user holds the potato
+    //Played and won 10 games without the clock?
+
     public static final String GAME_MANAGER = "GAME_MANAGER";
 
     // Request codes for the UIs that we show with startActivityForResult:
     final static int RC_SELECT_PLAYERS = 10000;
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
-    private static final String TAG = PlayActivity.class.getSimpleName();
+    private static final String TAG = "play activity";
 
     // Request code used to invoke sign in user interactions.
     private static final int RC_SIGN_IN = 9001;
