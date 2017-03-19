@@ -18,6 +18,7 @@ package com.example.android.alphap;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -683,56 +684,34 @@ public class MainActivity extends AppCompatActivity
         cardView.setOnTouchListener(listener);
 
         mMultiplayer = multiplayer;
-        //   updatePlayerDisplay();
+
 
         Random random = new Random();
-//        int randomPlayerToStart = random.nextInt(currentPlayers.size() - 1)+1;
+
         sendPotato(1);
 
         switchToScreen(R.id.screen_game);
 
 
-        // run the gameTick() method every second to update the game.
-        final Handler h = new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mSecondsLeft <= 0)
-                    return;
-                gameTick();
-                h.postDelayed(this, 1000);
+        new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
             }
-        }, 1000);
-    }
 
-    // Game tick -- update countdown, check if game ended.
-    void gameTick() {
-        if (mSecondsLeft > 0) {
-            --mSecondsLeft;
-            //  ((TextView) findViewById(R.id.countdown)).setText("0:" +
-            //        (mSecondsLeft < 10 ? "0" : "") + String.valueOf(mSecondsLeft));
+            public void onFinish() {
+                if (playerWithPotato == indexOfCurrentPlayer) {
+                    findViewById(R.id.tater_logo).setVisibility(View.INVISIBLE);
 
-        }
-        if (mSecondsLeft <= 0) {
-            // finish game
-            // findViewById(R.id.button_click_me).setVisibility(View.GONE);
-            sendPotato(playerWithPotato);
-        }
+                    findViewById(R.id.ex).setVisibility(View.VISIBLE);
+                    //l  sendPotato(playerWithPotato);
+                }else{
+                    findViewById(R.id.tater_logo).setVisibility(View.INVISIBLE);
 
-    }
+                    findViewById(R.id.checkmark).setVisibility(View.VISIBLE);
+                }
+            }
+        }.start();
 
-    // indicates the player scored one point
-
-    //TODO hasPotato
-    void scoreOnePoint() {
-        if (mSecondsLeft <= 0)
-            return; // too late!
-        ++mScore;
-        //updatePlayerDisplay();
-        //  updatePeerScoresDisplay();
-
-        // broadcast our new score to our peers
-        // broadcastScore(false);
     }
 
     /*
@@ -794,9 +773,6 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        // update the scores on the screen
-        // listener.updatePeerScoresDisplay(mParticipants, mHasPotatoMap, mRoomId, mMyId, mScore);
-
         // if it's a final score, mark this participant as having finished
         // the game
         if ((char) buf[0] == 'F') {
@@ -805,7 +781,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    // Broadcast my score to everybody else.
+    // Broadcast my potato to everybody else.
     private void sendPotato(int indexOfPlayerWithPotato) {
         if (!mMultiplayer)
             return; // playing single-player mode
@@ -829,11 +805,8 @@ public class MainActivity extends AppCompatActivity
                 continue;
             if (p.getStatus() != Participant.STATUS_JOINED)
                 continue;
-//            if (isPotatoPopped()) {
-//                // final score notification must be sent via reliable message
-//                Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, mMsgBuf,
-//                        mRoomId, p.getParticipantId());
-//            }
+
+
             // it's an interim score notification, so we can use unreliable
             Games.RealTimeMultiplayer.sendUnreliableMessage(mGoogleApiClient, mMsgBuf, mRoomId,
                     p.getParticipantId());
@@ -895,47 +868,6 @@ public class MainActivity extends AppCompatActivity
             switchToScreen(R.id.screen_sign_in);
         }
     }
-
-    // updates the label that shows my score
-//    void updatePlayerDisplay() {
-//        // ((TextView) findViewById(R.id.my_score)).setText(formatScore(mScore));
-//    }
-
-    // formats a score as a three-digit number
-    String formatScore(int i) {
-        if (i < 0)
-            i = 0;
-        String s = String.valueOf(i);
-        return s.length() == 1 ? "00" + s : s.length() == 2 ? "0" + s : s;
-    }
-
-//    void updatePlayerDisplay() {
-//        ((TextView) findViewById(R.id.score0)).setText(formatScore(mScore) + " - Me");
-//        int[] arr = {
-//                R.id.score1, R.id.score2, R.id.score3
-//        };
-//        int i = 0;
-//
-//        if (mRoomId != null) {
-//            for (Participant p : mParticipants) {
-//                String pid = p.getParticipantId();
-//                if (pid.equals(mMyId))
-//                    continue;
-//                if (p.getStatus() != Participant.STATUS_JOINED)
-//                    continue;
-//                int score = mHasPotatoMap.containsKey(pid) ? mHasPotatoMap.get(pid) : 0;
-//                ((TextView) findViewById(arr[i])).setText(formatScore(score) + " - " +
-//                        p.getDisplayName());
-//                ++i;
-//            }
-//        }
-//
-//        for (; i < arr.length; ++i) {
-//            ((TextView) findViewById(arr[i])).setText("");
-//        }
-//    }
-
-
 
     /*
      * MISC SECTION. Miscellaneous methods.
