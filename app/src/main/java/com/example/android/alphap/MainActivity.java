@@ -889,12 +889,19 @@ public class MainActivity extends AppCompatActivity
         ArrayList<Integer> mainRvImages = new ArrayList<>();
         mainRvImages.add(R.drawable.tractor_clip_art_470px);
         mainRvImages.add(R.drawable.barn_clipart_350px);
+        mainRvImages.add(R.drawable.tractor_clip_art_470px);
+
+        ArrayList<String> mainRvDescriptions = new ArrayList<>();
+        mainRvDescriptions.add("Create a new game of Tater Pop");
+        mainRvDescriptions.add("Check invitations or join a game");
+        mainRvDescriptions.add("View what you've unlocked");
 
         ArrayList<String> mainRvTvAList = new ArrayList<>();
         mainRvTvAList.add("Create");
         mainRvTvAList.add("Join");
+        mainRvTvAList.add("Achievements");
 
-        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, this);
+        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, mainRvDescriptions, this);
         recyclerView.setAdapter(adapter);
 
         ImageView signoutBtn = (ImageView) findViewById(R.id.signout_btn);
@@ -987,5 +994,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = Games.Invitations.getInvitationInboxIntent(mGoogleApiClient);
         switchToScreen(R.id.screen_wait);
         startActivityForResult(intent, RC_INVITATION_INBOX);
+    }
+
+    @Override
+    public void onAchievementsClicked() {
+        startActivityForResult(Games.Achievements.getAchievementsIntent(mGoogleApiClient), 0);
     }
 }
