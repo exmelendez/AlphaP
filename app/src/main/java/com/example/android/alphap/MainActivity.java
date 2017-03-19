@@ -17,9 +17,13 @@ package com.example.android.alphap;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.alphap.eddie.MainActivityRVAdapter;
 import com.example.android.alphap.eddie.SwipeCallback;
 import com.example.android.alphap.eddie.SwipeListener;
 import com.google.android.gms.common.ConnectionResult;
@@ -62,7 +67,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener, RealTimeMessageReceivedListener,
-        RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener {
+        RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener, MainActivityRVAdapter.Listener {
 
     /*
      * API INTEGRATION SECTION. This section contains the code that integrates
@@ -120,6 +125,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        applyFonts();
+
+        startSunAnimation();
+
+        initRecyclerView();
 
         cardView = (ImageView) findViewById(R.id.tater_logo);
         parent = (ViewGroup) findViewById(R.id.activity_swipe_layout);
@@ -143,59 +153,17 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        Intent intent;
-
         switch (v.getId()) {
-            case R.id.button_single_player:
-            case R.id.button_single_player_2:
-                // play a single-player game
-                resetGameVars();
-                startGame(false);
-                break;
             case R.id.button_sign_in:
-                // user wants to sign in
-                // Check to see the developer who's running this sample code read the instructions :-)
-                // NOTE: this check is here only because this is a sample! Don't include this
-                // check in your actual production app.
-                if (!BaseGameUtils.verifySampleSetup(this, R.string.app_id)) {
-                    Log.w(TAG, "*** Warning: setup problems detected. Sign in may not work!");
-                }
-
                 // start the sign-in flow
-                Log.d(TAG, "Sign-in button clicked");
                 mSignInClicked = true;
                 mGoogleApiClient.connect();
-                break;
-            case R.id.button_sign_out:
-                // user wants to sign out
-                // sign out.
-                Log.d(TAG, "Sign-out button clicked");
-                mSignInClicked = false;
-                Games.signOut(mGoogleApiClient);
-                mGoogleApiClient.disconnect();
-                switchToScreen(R.id.screen_sign_in);
-                break;
-            case R.id.button_invite_players:
-                // show list of invitable players
-                intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 3);
-                switchToScreen(R.id.screen_wait);
-                startActivityForResult(intent, RC_SELECT_PLAYERS);
-                break;
-            case R.id.button_see_invitations:
-                // show list of pending invitations
-                intent = Games.Invitations.getInvitationInboxIntent(mGoogleApiClient);
-                switchToScreen(R.id.screen_wait);
-                startActivityForResult(intent, RC_INVITATION_INBOX);
                 break;
             case R.id.button_accept_popup_invitation:
                 // user wants to accept the invitation shown on the invitation popup
                 // (the one we got through the OnInvitationReceivedListener).
                 acceptInviteToRoom(mIncomingInvitationId);
                 mIncomingInvitationId = null;
-                break;
-            case R.id.button_quick_game:
-                // user wants to play against a random opponent right now
-                startQuickGame();
                 break;
         }
     }
@@ -853,10 +821,7 @@ public class MainActivity extends AppCompatActivity
     // This array lists everything that's clickable, so we can install click
     // event handlers.
     final static int[] CLICKABLES = {
-            R.id.button_accept_popup_invitation, R.id.button_invite_players,
-            R.id.button_quick_game, R.id.button_see_invitations, R.id.button_sign_in,
-            R.id.button_sign_out, R.id.button_single_player,
-            R.id.button_single_player_2
+            R.id.button_accept_popup_invitation, R.id.button_sign_in
     };
 
     // This array lists all the individual screens our game has.
@@ -956,6 +921,61 @@ public class MainActivity extends AppCompatActivity
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
+    private void applyFonts() {
+        Typeface satisfy_font = Typeface.createFromAsset(getAssets(), "fonts/Satisfy-Regular.ttf");
+
+        TextView appName = (TextView) findViewById(R.id.product_name);
+        appName.setTypeface(satisfy_font);
+
+        TextView menuName = (TextView) findViewById(R.id.game_title);
+        menuName.setTypeface(satisfy_font);
+    }
+
+    private void startSunAnimation() {
+        final ImageView animImageView = (ImageView) findViewById(R.id.sun_header);
+        animImageView.setBackgroundResource(R.drawable.sun_header_anim);
+        animImageView.setImageAlpha(5);
+        animImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                AnimationDrawable frameAnimation =
+                        (AnimationDrawable) animImageView.getBackground();
+                frameAnimation.start();
+            }
+        });
+    }
+
+    private void initRecyclerView() {
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_rv);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        ArrayList<Integer> mainRvImages = new ArrayList<>();
+        mainRvImages.add(R.drawable.tractor_clip_art_470px);
+        mainRvImages.add(R.drawable.barn_clipart_350px);
+
+        ArrayList<String> mainRvTvAList = new ArrayList<>();
+        mainRvTvAList.add("Create");
+        mainRvTvAList.add("Join");
+
+        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, this);
+        recyclerView.setAdapter(adapter);
+
+        ImageView signoutBtn = (ImageView) findViewById(R.id.signout_btn);
+        signoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // sign out.
+                mSignInClicked = false;
+                Games.signOut(mGoogleApiClient);
+                mGoogleApiClient.disconnect();
+                switchToScreen(R.id.screen_sign_in);
+            }
+        });
+
+    }
+
     public SwipeCallback createSwipeCallback() {
 
         return new SwipeCallback() {
@@ -1006,4 +1026,19 @@ public class MainActivity extends AppCompatActivity
 
     };
 
+    @Override
+    public void onCreateGameClicked() {
+        // show list of invitable players
+        Intent intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 3);
+        switchToScreen(R.id.screen_wait);
+        startActivityForResult(intent, RC_SELECT_PLAYERS);
+    }
+
+    @Override
+    public void onJoinGameClicked() {
+        // show list of pending invitations
+        Intent intent = Games.Invitations.getInvitationInboxIntent(mGoogleApiClient);
+        switchToScreen(R.id.screen_wait);
+        startActivityForResult(intent, RC_INVITATION_INBOX);
+    }
 }

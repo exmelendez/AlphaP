@@ -67,30 +67,10 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="GameTitle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:text">@string/game_title</item>
-        <item name="android:textColor">@color/AccentColor</item>
-        <item name="android:textSize">@dimen/TitleSize</item>
-        <item name="android:layout_marginBottom">40dp</item>
-    </style>
-
     <style name="Blurb">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/BlurbColor</item>
-    </style>
-
-    <style name="GameBlurb" parent="@style/Blurb">
-        <item name="android:text">@string/game_blurb</item>
-        <item name="android:layout_marginBottom">40dp</item>
-    </style>
-
-    <style name="SignInButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">40dp</item>
     </style>
 
     <style name="GameButton">
@@ -104,10 +84,6 @@
 
     <style name="MainScreenButton" parent="@style/GameButton">
         <item name="android:layout_marginBottom">10dp</item>
-    </style>
-
-    <style name="MainScreenButtonBlurb" parent="@style/GameBlurb">
-        <item name="android:layout_marginBottom">20dp</item>
     </style>
 
     <style name="InvPopupText">

@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.alphap.R;
-import com.example.android.alphap.eddie.MainActivityRVAdapter;
 
 import java.util.ArrayList;
 
@@ -94,9 +93,9 @@ public class MenuFragment extends Fragment {
             }
         });
 
-
-        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, listener);
-        recyclerView.setAdapter(adapter);
+//
+//        RecyclerView.Adapter adapter = new MainActivityRVAdapter(mainRvImages, mainRvTvAList, listener);
+//        recyclerView.setAdapter(adapter);
 
     }
 }

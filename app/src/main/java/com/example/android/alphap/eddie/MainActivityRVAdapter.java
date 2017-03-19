@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.alphap.R;
-import com.example.android.alphap.playgames.MenuFragment;
 
 import java.util.ArrayList;
 
@@ -18,9 +17,9 @@ public class MainActivityRVAdapter extends RecyclerView.Adapter<MainActivityRVAd
     private ArrayList<Integer> mainRvPics;
     private ArrayList<String> mainRvTv;
     private Context context;
-    private MenuFragment.Listener listener;
+    private Listener listener;
 
-    public MainActivityRVAdapter(ArrayList<Integer> mainRvPics, ArrayList<String> mainRvTv, MenuFragment.Listener listener) {
+    public MainActivityRVAdapter(ArrayList<Integer> mainRvPics, ArrayList<String> mainRvTv, Listener listener) {
         this.mainRvPics = mainRvPics;
         this.mainRvTv = mainRvTv;
         this.listener = listener;
@@ -68,12 +67,15 @@ public class MainActivityRVAdapter extends RecyclerView.Adapter<MainActivityRVAd
                         case 1:
                             listener.onJoinGameClicked();
                             break;
-                        case 2:
-                            listener.onSignOutClicked();
-                            break;
                     }
                 }
             });
         }
+    }
+
+    public interface Listener {
+        void onCreateGameClicked();
+
+        void onJoinGameClicked();
     }
 }
