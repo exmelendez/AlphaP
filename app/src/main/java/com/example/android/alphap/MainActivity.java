@@ -628,6 +628,10 @@ public class MainActivity extends AppCompatActivity
         mScore = 0;
         mHasPotatoMap.clear();
         mFinishedParticipants.clear();
+
+        findViewById(R.id.checkmark).setVisibility(View.GONE);
+        findViewById(R.id.ex).setVisibility(View.GONE);
+
     }
 
     SwipeListener listener;
