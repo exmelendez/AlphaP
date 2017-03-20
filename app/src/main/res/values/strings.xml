@@ -77,5 +77,6 @@
     <string name="click_me">Click me!</string>
     <string name="is_inviting_you">is challenging you to a game!</string>
     <string name="tater_pop">Tater Pop</string>
+    <string name="preference_file_key">TaterPopPreferences</string>
 
 </resources>

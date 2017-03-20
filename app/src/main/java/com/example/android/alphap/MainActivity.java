@@ -15,6 +15,7 @@
 
 package com.example.android.alphap;
 
+import android.content.SharedPreferences;
 import android.os.Vibrator;
 
 import android.app.Activity;
@@ -25,6 +26,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -59,6 +61,7 @@ import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListene
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.example.games.basegameutils.BaseGameUtils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -79,6 +82,14 @@ public class MainActivity extends AppCompatActivity
      * API INTEGRATION SECTION. This section contains the code that integrates
      * the game with the Google Play game services API.
      */
+
+    private int gamesPlayed;
+    private int gamesWon;
+    private int gamesLost;
+    private int totalPoints;
+    private boolean currentGameWon;  //To know if we won or lost our current game
+    private ArrayList<Boolean> currentStreak;  //List of all the games that have been played
+
 
     private ViewGroup parent;
     private ImageView cardView;
@@ -127,10 +138,18 @@ public class MainActivity extends AppCompatActivity
 
     private int numberOfInvitees = -1;
 
+    SharedPreferences sharedPref;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        gamesPlayed = sharedPref.getInt("games_played", 0);
+        gamesWon = sharedPref.getInt("games_won", 0);
+        gamesLost = sharedPref.getInt("games_lost", 0);
+        totalPoints = sharedPref.getInt("total_points", 0);
+        currentStreak = new ArrayList<>();
 
         applyFonts();
 
@@ -677,6 +696,8 @@ public class MainActivity extends AppCompatActivity
 
             public void onFinish() {
                 if (playerWithPotato == indexOfCurrentPlayer) {
+                    gamesLost++;
+                    currentStreak.add(false);
 
                     findViewById(R.id.tater_logo).setVisibility(View.INVISIBLE);
 
@@ -686,12 +707,18 @@ public class MainActivity extends AppCompatActivity
 
                     findViewById(R.id.ex).setVisibility(View.VISIBLE);
                     //l  sendPotato(playerWithPotato);
-                }else{
+                } else {
+                    gamesWon++;
+                    currentStreak.add(true);
+                    totalPoints += 100;
                     findViewById(R.id.tater_logo).setVisibility(View.GONE);
 
                     findViewById(R.id.winner).setVisibility(View.VISIBLE);
                 }
+                gamesPlayed++;
+                finishGame();
             }
+
         }.start();
 
     }
@@ -773,8 +800,6 @@ public class MainActivity extends AppCompatActivity
         Log.d(TAG, "Player " + indexOfCurrentPlayer + " is sending the potato to " + indexOfPlayerWithPotato + ".");
         // First byte in message indicates whether it's a final score or not
         mMsgBuf[0] = (byte) 'T';
-
-        //index of player w potato == mParticipants.indexOf(mMyId) +1
 
 
         // Second byte is the player with the potato.
@@ -1008,5 +1033,80 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onAchievementsClicked() {
         startActivityForResult(Games.Achievements.getAchievementsIntent(mGoogleApiClient), 0);
+    }
+
+
+    private void finishGame() {
+        //sendPotato(true);
+        //display LOST or WON message on screens
+        //increment gamesLost or gamesWon;
+        //increment totalPoints
+//        if (!currentStreak.isEmpty()) {
+//            checkVindicatorAcheivement();
+//        checkWinStreakAcheivement(3, "CgkIyc_avrcUEAIQAQ");
+//        checkWinStreakAcheivement(5, "CgkIyc_avrcUEAIQAw");
+//        checkWinStreakAcheivement(10, "CgkIyc_avrcUEAIQCQ");
+//        }
+        Games.Achievements.unlock(mGoogleApiClient, "CgkIyc_avrcUEAIQBQ"); // played first game acheivement
+
+        updateStats();
+
+    }
+
+    private void checkVindicatorAcheivement() {
+
+        if (currentStreak.get(currentStreak.size() - 1) == currentStreak.get(currentStreak.size() - 2) &&
+                !currentStreak.get(currentStreak.size() - 2)) {  //Checking to see if the last two games were lost
+            if (currentGameWon) {
+                AlertDialog dialog = new AlertDialog.Builder(getApplicationContext()).create();
+                dialog.setIcon(R.drawable.potato_alone);
+                dialog.setTitle("GOOD JOB!");
+                dialog.setMessage("You broke a two loss streak!");
+                dialog.show();
+            }
+        }
+        currentStreak.add(currentGameWon);  //Adding to arraylist of booleans, depending on whether or not the game won/lost
+    }
+
+    private void checkWinStreakAcheivement(int winsInARow, String achievementKey) {
+        boolean isWin = true; //defaults to false
+        int i = winsInARow;
+        while (i > currentStreak.size() - winsInARow) {
+            if (!currentStreak.get(i)) {
+                isWin = false;
+                break;
+            }
+            i--;
+        }
+        if (isWin) {
+            Games.Achievements.unlock(mGoogleApiClient, achievementKey);
+        }
+    }
+
+    private void updateStats() {
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("games_played", gamesPlayed);
+        editor.putInt("games_won", gamesWon);
+        editor.putInt("games_lost", gamesLost);
+        editor.putInt("total_points", totalPoints);
+        editor.apply();
+
+        if (gamesWon == 3) {
+            Games.Achievements.unlock(mGoogleApiClient, "CgkIyc_avrcUEAIQAQ");
+
+        }
+        if (gamesWon == 5) {
+            Games.Achievements.unlock(mGoogleApiClient, "CgkIyc_avrcUEAIQAw");
+
+        }
+        if (gamesWon == 10) {
+
+            Games.Achievements.unlock(mGoogleApiClient, "CgkIyc_avrcUEAIQCQ");
+        }
+
+        if (gamesPlayed == 10) {
+            Games.Achievements.unlock(mGoogleApiClient, "CgkIyc_avrcUEAIQCg");
+        }
     }
 }
