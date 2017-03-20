@@ -902,7 +902,7 @@ public class MainActivity extends AppCompatActivity
         ArrayList<Integer> mainRvImages = new ArrayList<>();
         mainRvImages.add(R.drawable.tractor_clip_art_470px);
         mainRvImages.add(R.drawable.barn_clipart_350px);
-        mainRvImages.add(R.drawable.tractor_clip_art_470px);
+        mainRvImages.add(R.drawable.farmers);
 
         ArrayList<String> mainRvDescriptions = new ArrayList<>();
         mainRvDescriptions.add("Create a new game of Tater Pop");
