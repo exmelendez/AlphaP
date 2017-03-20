@@ -1,11 +1,10 @@
-package com.example.android.alphap.eddie;
+package com.example.android.alphap.swipefunction;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.android.alphap.R;
 

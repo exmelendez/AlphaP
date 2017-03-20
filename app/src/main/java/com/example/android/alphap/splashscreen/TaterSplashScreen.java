@@ -1,4 +1,4 @@
-package com.example.android.alphap.yojana;
+package com.example.android.alphap.splashscreen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import com.example.android.alphap.R;
  * Created by yojanasharma on 3/15/17.
  */
 
-public class YojanaSplash extends Activity {
+public class TaterSplashScreen extends Activity {
 
     ImageView potatoIV, cloudParallaxIV, clouds, taterPopLogo;
 
@@ -89,7 +89,7 @@ public class YojanaSplash extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent = new Intent(YojanaSplash.this, MainActivity.class);
+                Intent intent = new Intent(TaterSplashScreen.this, MainActivity.class);
                 startActivity(intent);
             }
 

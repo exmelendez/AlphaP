@@ -1,4 +1,4 @@
-package com.example.android.alphap.eddie;
+package com.example.android.alphap.swipefunction;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
