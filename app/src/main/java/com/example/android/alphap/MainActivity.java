@@ -37,9 +37,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.alphap.eddie.MainActivityRVAdapter;
-import com.example.android.alphap.eddie.SwipeCallback;
-import com.example.android.alphap.eddie.SwipeListener;
+import com.example.android.alphap.swipefunction.MainActivityRVAdapter;
+import com.example.android.alphap.swipefunction.SwipeCallback;
+import com.example.android.alphap.swipefunction.SwipeListener;
 import com.example.android.alphap.messaging.MessageAttempt;
 import com.example.android.alphap.messaging.ReliableMessageHandler;
 import com.google.android.gms.common.ConnectionResult;

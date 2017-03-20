@@ -41,7 +41,7 @@
 
         <!-- eddie -->
         <!--<activity android:name=".eddie.SwipeActivity" />-->
-        <activity android:name=".eddie.GamePlay" />
+        <activity android:name=".swipefunction.GamePlay" />
 
 
         <!-- asia -->
@@ -50,7 +50,7 @@
         <activity android:name=".bluetoothmode.JoinedPlayerActivity" />
         <activity android:name=".bluetoothmode.GamePlayActivity" />
         <activity android:name=".shakefunction.ShakeActivity" />
-        <activity android:name=".yojana.YojanaSplash"
+        <activity android:name=".splashscreen.TaterSplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
