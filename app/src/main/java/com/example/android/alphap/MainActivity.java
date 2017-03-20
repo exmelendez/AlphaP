@@ -937,10 +937,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void cardSwipedLeft(View card) {
                 if (indexOfCurrentPlayer == 0) {
-                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(mParticipants.size() - 1);
                 } else {
-                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(indexOfCurrentPlayer - 1);
                 }
             }
@@ -948,11 +946,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void cardSwipedRight(View card) {
                 if (indexOfCurrentPlayer == mParticipants.size() - 1) {
-                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     //Pass to index of player w potato == size -2
                     sendPotato(0);
                 } else {
-                    Toast.makeText(getApplicationContext(), indexOfCurrentPlayer + "", Toast.LENGTH_SHORT).show();
                     sendPotato(indexOfCurrentPlayer + 1);
                 }
             }
