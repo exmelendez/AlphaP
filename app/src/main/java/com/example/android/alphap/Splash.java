@@ -22,6 +22,8 @@ public class Splash extends Activity {
         moveAnim.setInterpolator(new BounceInterpolator());
         moveAnim.start();
 
+        finish();
+
 
 
     }
