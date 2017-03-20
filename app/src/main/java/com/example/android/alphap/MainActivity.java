@@ -15,7 +15,10 @@
 
 package com.example.android.alphap;
 
+import android.os.Vibrator;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
@@ -629,7 +632,7 @@ public class MainActivity extends AppCompatActivity
         mHasPotatoMap.clear();
         mFinishedParticipants.clear();
 
-        findViewById(R.id.checkmark).setVisibility(View.GONE);
+        findViewById(R.id.winner).setVisibility(View.GONE);
         findViewById(R.id.ex).setVisibility(View.GONE);
 
     }
@@ -668,19 +671,25 @@ public class MainActivity extends AppCompatActivity
 
         new CountDownTimer(10000, 1000) {
 
+
             public void onTick(long millisUntilFinished) {
             }
 
             public void onFinish() {
                 if (playerWithPotato == indexOfCurrentPlayer) {
+
                     findViewById(R.id.tater_logo).setVisibility(View.INVISIBLE);
+
+                    Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                    // Vibrate for 500 milliseconds
+                    v.vibrate(500);
 
                     findViewById(R.id.ex).setVisibility(View.VISIBLE);
                     //l  sendPotato(playerWithPotato);
                 }else{
                     findViewById(R.id.tater_logo).setVisibility(View.GONE);
 
-                    findViewById(R.id.checkmark).setVisibility(View.VISIBLE);
+                    findViewById(R.id.winner).setVisibility(View.VISIBLE);
                 }
             }
         }.start();
