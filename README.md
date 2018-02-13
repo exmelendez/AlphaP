@@ -7,7 +7,6 @@ Welcome to TaterPop. An updated, nostalgic classic, of the hot potato game where
 ##### fig 1. App opening splash screen.
 
 ## What can it do?
-***
 
 
 
