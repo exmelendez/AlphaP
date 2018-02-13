@@ -15,3 +15,4 @@ After the splash screen is displayed, the user is able to scroll horizontally an
 ![picture](https://gdurl.com/n91b)
 ##### fig 2. Create Game.
 ***
+![picture](https://gdurl.com/z0Ff)
