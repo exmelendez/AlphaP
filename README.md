@@ -6,7 +6,7 @@ Welcome to TaterPop. An updated, nostalgic classic, of the hot potato game where
 ![picture](https://gdurl.com/KhQ0)
 ##### fig 1. App opening splash screen.
 
-## Why?
+## Why? / How?
 We wanted to create a game that was initially meant to be played physically and figure out how we could reinvent it digitally. We envisioned a game that might be used to create, comforting social environments among children or adults. Everything from parties, school settings to work ice breakers.
 
 #### Playing the Game
